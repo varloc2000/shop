@@ -26,13 +26,13 @@ class TaxonomyType extends BaseTaxonomyType
     {
         parent::buildForm($builder, $options);
 
-        $builder->add(
-            'file',
-            'file',
-            array(
-                'property_path' => 'root.file',
-                'label' => 'sylius.form.taxonomy.file'
-            )
-        );
+        // $builder->add(
+        //     'file',
+        //     'file',
+        //     array(
+        //         'property_path' => 'root.file',
+        //         'label' => 'sylius.form.taxonomy.file'
+        //     )
+        // );
     }
 }

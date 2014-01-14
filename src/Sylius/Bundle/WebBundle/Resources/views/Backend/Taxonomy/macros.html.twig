@@ -31,8 +31,10 @@
             </td>
             <td>
                 <div class="pull-right">
-                    {{ buttons.create(path('sylius_backend_taxon_create', {'taxonomyId': taxonomy.id}), 'sylius.taxon.create'|trans)|raw }}
-                    {{ buttons.edit(path('sylius_backend_taxonomy_update', {'id': taxonomy.id})) }}
+                    <div class="btn-group btn-group-sm">
+                        {{ buttons.create(path('sylius_backend_taxon_create', {'taxonomyId': taxonomy.id}), 'sylius.taxon.create'|trans)|raw }}
+                        {{ buttons.edit(path('sylius_backend_taxonomy_update', {'id': taxonomy.id})) }}
+                    </div>
                     {{ buttons.delete(path('sylius_backend_taxonomy_delete', {'id': taxonomy.id})) }}
                 </div>
             </td>
