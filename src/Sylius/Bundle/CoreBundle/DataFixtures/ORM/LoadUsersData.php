@@ -40,21 +40,21 @@ class LoadUsersData extends DataFixture
 
         $this->setReference('User-Administrator', $user);
 
-        for ($i = 1; $i <= 15; $i++) {
-            $user = $this->getUserRepository()->createNew();
+        // for ($i = 1; $i <= 15; $i++) {
+        //     $user = $this->getUserRepository()->createNew();
 
-            $username = $this->faker->username;
+        //     $username = $this->faker->username;
 
-            $user->setFirstname($this->faker->firstName);
-            $user->setLastname($this->faker->lastName);
-            $user->setEmail($username.'@example.com');
-            $user->setPlainPassword($username);
-            $user->setEnabled($this->faker->boolean());
+        //     $user->setFirstname($this->faker->firstName);
+        //     $user->setLastname($this->faker->lastName);
+        //     $user->setEmail($username.'@example.com');
+        //     $user->setPlainPassword($username);
+        //     $user->setEnabled($this->faker->boolean());
 
-            $manager->persist($user);
+        //     $manager->persist($user);
 
-            $this->setReference('Sylius.User-'.$i, $user);
-        }
+        //     $this->setReference('Sylius.User-'.$i, $user);
+        // }
 
         $manager->flush();
     }
