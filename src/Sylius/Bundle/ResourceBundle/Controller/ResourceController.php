@@ -139,7 +139,6 @@ class ResourceController extends FOSRestController
 
             $this->setFlash($event->getMessageType(), $event->getMessage(), $event->getMessageParams());
         }
-
         if ($config->isApiRequest()) {
             return $this->handleView($this->view($form));
         }

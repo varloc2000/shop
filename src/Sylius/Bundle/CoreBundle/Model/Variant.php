@@ -152,7 +152,7 @@ class Variant extends BaseVariant implements VariantInterface
     /**
      * {@inheritdoc}
      */
-    public function setOnHand($onHand)
+    public function setOnHand($onHand = null)
     {
         $this->onHand = $onHand;
 
@@ -160,6 +160,10 @@ class Variant extends BaseVariant implements VariantInterface
             $this->onHand = 0;
         }
 
+        if ($onHand === null) {
+            $this->onHand = 1;
+        }
+        
         return $this;
     }
 

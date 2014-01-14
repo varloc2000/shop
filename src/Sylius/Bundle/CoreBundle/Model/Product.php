@@ -121,8 +121,14 @@ class Product extends BaseProduct implements ProductInterface
     /**
      * {@inheritdoc}
      */
-    public function setVariantSelectionMethod($variantSelectionMethod)
+    public function setVariantSelectionMethod($variantSelectionMethod = null)
     {
+
+        if ($variantSelectionMethod === null) {
+            $this->variantSelectionMethod = self::VARIANT_SELECTION_CHOICE;
+            return $this;
+        }
+        
         if (!in_array($variantSelectionMethod, array(self::VARIANT_SELECTION_CHOICE, self::VARIANT_SELECTION_MATCH))) {
             throw new \InvalidArgumentException(sprintf('Wrong variant selection method "%s" given.', $variantSelectionMethod));
         }
@@ -130,6 +136,7 @@ class Product extends BaseProduct implements ProductInterface
         $this->variantSelectionMethod = $variantSelectionMethod;
 
         return $this;
+        
     }
 
     /**

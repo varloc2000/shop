@@ -226,9 +226,13 @@ class Variant implements VariantInterface
     /**
      * {@inheritdoc}
      */
-    public function setAvailableOn(\DateTime $availableOn)
+    public function setAvailableOn(\DateTime $availableOn = null)
     {
-        $this->availableOn = $availableOn;
+        if (null !== $availableOn) {
+            $this->availableOn = $availableOn;
+        } else {
+            $this->availableOn = new \DateTime();
+        }
 
         return $this;
     }
