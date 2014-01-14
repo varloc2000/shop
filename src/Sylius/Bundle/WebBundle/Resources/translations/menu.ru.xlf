@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="cd1ac84fcaa92336771b2f537b546f7c" resname="sylius.backend.menu.main.assortment">
         <source>sylius.backend.menu.main.assortment</source>
-        <target>Ассортимент</target>
+        <target>Магазин</target>
       </trans-unit>
       <trans-unit id="a372a7d5b6e2991da23009440f5b1c98" resname="sylius.backend.menu.main.configuration">
         <source>sylius.backend.menu.main.configuration</source>
@@ -72,7 +72,7 @@
       </trans-unit>
       <trans-unit id="8519017294862107bc163e8f8230b22c" resname="sylius.backend.menu.main.sales">
         <source>sylius.backend.menu.main.sales</source>
-        <target>Заказы</target>
+        <target>Акции</target>
       </trans-unit>
       <trans-unit id="19ee56216b22fd756531e4543baa4af9" resname="sylius.backend.menu.main.shipments">
         <source>sylius.backend.menu.main.shipments</source>
@@ -112,7 +112,7 @@
       </trans-unit>
       <trans-unit id="b82bee2bddf68adf095856b85e41b6cb" resname="sylius.backend.menu.sidebar.assortment">
         <source>sylius.backend.menu.sidebar.assortment</source>
-        <target>Ассортимент</target>
+        <target>Магазин</target>
       </trans-unit>
       <trans-unit id="7486e100b253cf670a06bf260d24d6c3" resname="sylius.backend.menu.sidebar.configuration">
         <source>sylius.backend.menu.sidebar.configuration</source>
@@ -124,7 +124,7 @@
       </trans-unit>
       <trans-unit id="cba72055a7fd943fa6c615612b7f895f" resname="sylius.backend.menu.sidebar.customer">
         <source>sylius.backend.menu.sidebar.customer</source>
-        <target>Клиенты</target>
+        <target>Пользователь</target>
       </trans-unit>
       <trans-unit id="b7c9d66374f6f0aba78d570378706128" resname="sylius.backend.menu.sidebar.dashboard">
         <source>sylius.backend.menu.sidebar.dashboard</source>
@@ -184,7 +184,7 @@
       </trans-unit>
       <trans-unit id="6840b932d704253195a482d027507718" resname="sylius.backend.menu.sidebar.sales">
         <source>sylius.backend.menu.sidebar.sales</source>
-        <target>Заказы</target>
+        <target>Акции</target>
       </trans-unit>
       <trans-unit id="4f8dcbe9a191e195cf2c64850ec4f26a" resname="sylius.backend.menu.sidebar.shipments">
         <source>sylius.backend.menu.sidebar.shipments</source>

@@ -17,56 +17,56 @@ class LoadOrdersData extends DataFixture
 {
     public function load(ObjectManager $manager)
     {
-        $orderRepository = $this->getOrderRepository();
-        $orderItemRepository = $this->getOrderItemRepository();
+        // $orderRepository = $this->getOrderRepository();
+        // $orderItemRepository = $this->getOrderItemRepository();
 
-        for ($i = 1; $i <= 50; $i++) {
-            $order = $orderRepository->createNew();
+        // for ($i = 1; $i <= 50; $i++) {
+        //     $order = $orderRepository->createNew();
 
-            for ($j = 0; $j <= rand(3, 6); $j++) {
-                $variant = $this->getReference('Sylius.Variant-'.rand(1, SYLIUS_FIXTURES_TOTAL_VARIANTS - 1));
+        //     for ($j = 0; $j <= rand(3, 6); $j++) {
+        //         $variant = $this->getReference('Sylius.Variant-'.rand(1, SYLIUS_FIXTURES_TOTAL_VARIANTS - 1));
 
-                $item = $orderItemRepository->createNew();
+        //         $item = $orderItemRepository->createNew();
 
-                $item->setVariant($variant);
-                $item->setUnitPrice($variant->getPrice());
-                $item->setQuantity(rand(1, 5));
+        //         $item->setVariant($variant);
+        //         $item->setUnitPrice($variant->getPrice());
+        //         $item->setQuantity(rand(1, 5));
 
-                $order->addItem($item);
-            }
+        //         $order->addItem($item);
+        //     }
 
-            $shipment = $this->getShipmentRepository()->createNew();
-            $shipment->setMethod($this->getReference('Sylius.ShippingMethod.UPS Ground'));
+        //     $shipment = $this->getShipmentRepository()->createNew();
+        //     $shipment->setMethod($this->getReference('Sylius.ShippingMethod.UPS Ground'));
 
-            foreach ($order->getInventoryUnits() as $item) {
-                $shipment->addItem($item);
-            }
+        //     foreach ($order->getInventoryUnits() as $item) {
+        //         $shipment->addItem($item);
+        //     }
 
-            $order->addShipment($shipment);
+        //     $order->addShipment($shipment);
 
-            $order->setNumber(str_pad((int) $i, 9, 0, STR_PAD_LEFT));
-            $order->setCurrency($this->faker->randomElement(array('EUR', 'USD', 'GBP')));
-            $order->setUser($this->getReference('Sylius.User-'.rand(1, 15)));
-            $order->setShippingAddress($this->createAddress());
-            $order->setBillingAddress($this->createAddress());
-            $order->setCreatedAt($this->faker->dateTimeBetween('1 year ago', 'now'));
+        //     $order->setNumber(str_pad((int) $i, 9, 0, STR_PAD_LEFT));
+        //     $order->setCurrency($this->faker->randomElement(array('EUR', 'USD', 'GBP')));
+        //     $order->setUser($this->getReference('Sylius.User-'.rand(1, 15)));
+        //     $order->setShippingAddress($this->createAddress());
+        //     $order->setBillingAddress($this->createAddress());
+        //     $order->setCreatedAt($this->faker->dateTimeBetween('1 year ago', 'now'));
 
-            $order->calculateTotal();
-            $order->complete();
+        //     $order->calculateTotal();
+        //     $order->complete();
 
-            $payment = $this->getPaymentRepository()->createNew();
-            $payment->setMethod($this->getReference('Sylius.PaymentMethod.Stripe'));
-            $payment->setAmount($order->getTotal());
-            $payment->setCurrency($order->getCurrency());
+        //     $payment = $this->getPaymentRepository()->createNew();
+        //     $payment->setMethod($this->getReference('Sylius.PaymentMethod.Stripe'));
+        //     $payment->setAmount($order->getTotal());
+        //     $payment->setCurrency($order->getCurrency());
 
-            $order->setPayment($payment);
+        //     $order->setPayment($payment);
 
-            $this->setReference('Sylius.Order-'.$i, $order);
+        //     $this->setReference('Sylius.Order-'.$i, $order);
 
-            $manager->persist($order);
-        }
+        //     $manager->persist($order);
+        // }
 
-        $manager->flush();
+        // $manager->flush();
     }
 
     private function createAddress()

@@ -47,7 +47,6 @@ class BackendMenuBuilder extends MenuBuilder
         ))->setLabel($this->translate('sylius.backend.menu.main.dashboard'));
 
         $this->addAssortmentMenu($menu, $childOptions, 'main');
-        $this->addSalesMenu($menu, $childOptions, 'main');
         $this->addConfigurationMenu($menu, $childOptions, 'main');
         $this->addCustomersMenu($menu, $childOptions, 'main');
 
@@ -83,7 +82,6 @@ class BackendMenuBuilder extends MenuBuilder
         );
 
         $this->addAssortmentMenu($menu, $childOptions, 'sidebar');
-        $this->addSalesMenu($menu, $childOptions, 'sidebar');
         $this->addCustomersMenu($menu, $childOptions, 'sidebar');
         $this->addConfigurationMenu($menu, $childOptions, 'sidebar');
 
@@ -114,11 +112,6 @@ class BackendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.products', $section)));
 
-        $child->addChild('inventory', array(
-            'route' => 'sylius_backend_inventory_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-tasks'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.stockables', $section)));
-
         $child->addChild('options', array(
             'route' => 'sylius_backend_option_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-th'),
@@ -133,43 +126,11 @@ class BackendMenuBuilder extends MenuBuilder
             'route' => 'sylius_backend_prototype_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-compressed'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.prototypes', $section)));
-    }
-
-    /**
-     * Add sales menu.
-     *
-     * @param ItemInterface $menu
-     * @param array         $childOptions
-     * @param string        $section
-     */
-    protected function addSalesMenu(ItemInterface $menu, array $childOptions, $section)
-    {
-        $child = $menu
-            ->addChild('sales', $childOptions)
-            ->setLabel($this->translate(sprintf('sylius.backend.menu.%s.sales', $section)))
-        ;
-
-        $child->addChild('orders', array(
-            'route' => 'sylius_backend_order_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-shopping-cart'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.orders', $section)));
-        $child->addChild('new_order', array(
-            'route' => 'sylius_backend_order_create',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.new_order', $section)));
-        $child->addChild('payments', array(
-            'route' => 'sylius_backend_payment_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-credit-card'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.payments', $section)));
 
         $child->addChild('promotions', array(
             'route' => 'sylius_backend_promotion_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-bullhorn'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.promotions', $section)));
-        $child->addChild('new_promotion', array(
-            'route' => 'sylius_backend_promotion_create',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-plus-sign'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.new_promotion', $section)));
     }
 
     /**
@@ -190,10 +151,6 @@ class BackendMenuBuilder extends MenuBuilder
             'route' => 'sylius_backend_user_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.users', $section)));
-        $child->addChild('groups', array(
-            'route' => 'sylius_backend_group_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-home'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.groups', $section)));
     }
 
     /**
@@ -215,54 +172,9 @@ class BackendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-info-sign'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.general_settings', $section)));
 
-        $child->addChild('payment_methods', array(
-            'route' => 'sylius_backend_payment_method_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-credit-card'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.payment_methods', $section)));
-
         $child->addChild('exchange_rates', array(
             'route' => 'sylius_backend_exchange_rate_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-usd'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.exchange_rates', $section)));
-
-        $child->addChild('taxation_settings', array(
-            'route' => 'sylius_backend_taxation_settings',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-cog'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.taxation_settings', $section)));
-
-        $child->addChild('tax_categories', array(
-            'route' => 'sylius_backend_tax_category_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-cog'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.tax_categories', $section)));
-
-        $child->addChild('tax_rates', array(
-            'route' => 'sylius_backend_tax_rate_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-cog'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.tax_rates', $section)));
-
-        $child->addChild('shipping_categories', array(
-            'route' => 'sylius_backend_shipping_category_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-cog'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.shipping_categories', $section)));
-
-        $child->addChild('shipping_methods', array(
-            'route' => 'sylius_backend_shipping_method_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-cog'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.shipping_methods', $section)));
-
-        $child->addChild('shipments', array(
-            'route' => 'sylius_backend_shipment_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-plane'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.shipments', $section)));
-
-        $child->addChild('countries', array(
-            'route' => 'sylius_backend_country_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-flag'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.countries', $section)));
-
-        $child->addChild('zones', array(
-            'route' => 'sylius_backend_zone_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-globe'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.zones', $section)));
     }
 }
