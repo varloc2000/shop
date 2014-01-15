@@ -54,6 +54,9 @@ form.form-signin .form-control:focus {
 .btn > i {
     margin-right: 5px;
 }
+.btn > i.only-icon {
+    margin-right: 0;
+}
 .btn.btn-default {
     border-color: #DDD;
     background: #F5F5F5;
