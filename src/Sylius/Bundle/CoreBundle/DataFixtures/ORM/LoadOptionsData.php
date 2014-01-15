@@ -25,20 +25,16 @@ class LoadOptionsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        // T-Shirt size option.
-        $option = $this->createOption('T-Shirt size', 'Size', array('S', 'M', 'L', 'XL', 'XXL'));
+        $option = $this->createOption('Размер ванной', 'Размер', array('2000 х 500', '2000 х 2000', '1800 х 450'));
         $manager->persist($option);
 
-        // T-Shirt color option.
-        $option = $this->createOption('T-Shirt color', 'Color', array('Red', 'Blue', 'Green'));
+        $option = $this->createOption('Цвет ванной', 'Цвет', array('Красный', 'Голубой', 'Белый', 'Черный'));
         $manager->persist($option);
 
-        // Sticker size option.
-        $option = $this->createOption('Sticker size', 'Size', array('3"','5"','7"'));
+        $option = $this->createOption('Размер умывальника', 'Размер', array('300 х 500', '400 х 400'));
         $manager->persist($option);
 
-        // Mug type option.
-        $option = $this->createOption('Mug type', 'Type', array('Medium mug','Double mug','MONSTER mug'));
+        $option = $this->createOption('Тип смесителя', 'Тип', array('Однорычажный', 'Электронный', 'Двойного излива'));
         $manager->persist($option);
 
         $manager->flush();

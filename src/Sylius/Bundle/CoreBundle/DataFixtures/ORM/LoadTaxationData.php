@@ -26,28 +26,28 @@ class LoadTaxationData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category');
+        // $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category');
 
-        $manager->persist($taxableGoods);
-        $manager->flush();
+        // $manager->persist($taxableGoods);
+        // $manager->flush();
 
-        $taxRate = $this->createTaxRate('EU VAT', 'EU', 0.23);
-        $taxRate->setCategory($taxableGoods);
+        // $taxRate = $this->createTaxRate('EU VAT', 'EU', 0.23);
+        // $taxRate->setCategory($taxableGoods);
 
-        $manager->persist($taxRate);
-        $manager->flush();
+        // $manager->persist($taxRate);
+        // $manager->flush();
 
-        $taxableGoods->addRate($this->createTaxRate('US Sales Tax', 'USA', 0.08));
-        $taxRate->setCategory($taxableGoods);
+        // $taxableGoods->addRate($this->createTaxRate('US Sales Tax', 'USA', 0.08));
+        // $taxRate->setCategory($taxableGoods);
 
-        $manager->persist($taxRate);
-        $manager->flush();
+        // $manager->persist($taxRate);
+        // $manager->flush();
 
-        $taxableGoods->addRate($this->createTaxRate('No tax', 'Rest of World', 0.00));
-        $taxRate->setCategory($taxableGoods);
+        // $taxableGoods->addRate($this->createTaxRate('No tax', 'Rest of World', 0.00));
+        // $taxRate->setCategory($taxableGoods);
 
-        $manager->persist($taxRate);
-        $manager->flush();
+        // $manager->persist($taxRate);
+        // $manager->flush();
     }
 
     /**
