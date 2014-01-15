@@ -25,7 +25,7 @@ class LoadTaxonomiesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $manager->persist($this->createTaxonomy('Категории', array(
+        $manager->persist($this->createTaxonomy(1, 'Категории', array(
             'Ванны',
             'Мойки кухонные',
             'Мойки для ванных комнат',
@@ -34,7 +34,7 @@ class LoadTaxonomiesData extends DataFixture
             'Унитазы',
         )));
 
-        $manager->persist($this->createTaxonomy('Производители', array(
+        $manager->persist($this->createTaxonomy(2, 'Производители', array(
             'Керамин',
             'Будфарфор',
             'Sanplast',
@@ -53,7 +53,7 @@ class LoadTaxonomiesData extends DataFixture
      * @param string $name
      * @param array  $taxons
      */
-    private function createTaxonomy($name, array $taxons)
+    private function createTaxonomy($number, $name, array $taxons)
     {
         $taxonomy = $this
             ->getTaxonomyRepository()
@@ -62,7 +62,7 @@ class LoadTaxonomiesData extends DataFixture
 
         $taxonomy->setName($name);
 
-        foreach ($taxons as $taxonName) {
+        foreach ($taxons as $key => $taxonName) {
             $taxon = $this
                 ->getTaxonRepository()
                 ->createNew()
@@ -71,10 +71,10 @@ class LoadTaxonomiesData extends DataFixture
             $taxon->setName($taxonName);
 
             $taxonomy->addTaxon($taxon);
-            $this->setReference('Sylius.Taxon.'.$taxonName, $taxon);
+            $this->setReference('Sylius.Taxon.'.$key, $taxon);
         }
 
-        $this->setReference('Sylius.Taxonomy.'.$name, $taxonomy);
+        $this->setReference('Sylius.Taxonomy.'.$number, $taxonomy);
 
         return $taxonomy;
     }

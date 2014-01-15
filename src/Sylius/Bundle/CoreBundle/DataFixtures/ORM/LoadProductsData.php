@@ -52,33 +52,33 @@ class LoadProductsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        // $this->productPropertyClass = $this->container->getParameter('sylius.model.product_property.class');
+        $this->productPropertyClass = $this->container->getParameter('sylius.model.product_property.class');
 
-        // for ($i = 1; $i <= 120; $i++) {
-        //     switch (rand(0, 3)) {
-        //         case 0:
-        //             $manager->persist($this->createWashbasin($i));
-        //         break;
+        for ($i = 1; $i <= 120; $i++) {
+            switch (rand(0, 3)) {
+                case 0:
+                    $manager->persist($this->createWashbasin($i));
+                break;
 
-        //         case 1:
-        //             $manager->persist($this->createSticker($i));
-        //         break;
+                // case 1:
+                //     $manager->persist($this->createSticker($i));
+                // break;
 
-        //         case 2:
-        //             $manager->persist($this->createMug($i));
-        //         break;
+                // case 2:
+                //     $manager->persist($this->createMug($i));
+                // break;
 
-        //         case 3:
-        //             $manager->persist($this->createBook($i));
-        //         break;
-        //     }
+                // case 3:
+                //     $manager->persist($this->createBook($i));
+                // break;
+            }
 
-        //     if (0 === $i % 20) {
-        //         $manager->flush();
-        //     }
-        // }
+            if (0 === $i % 20) {
+                $manager->flush();
+            }
+        }
 
-        // $manager->flush();
+        $manager->flush();
 
         // Define constant with number of total variants created.
         define('SYLIUS_FIXTURES_TOTAL_VARIANTS', $this->totalVariants);
@@ -101,7 +101,8 @@ class LoadProductsData extends DataFixture
     {
         $product = $this->createProduct();
 
-        $product->setTaxCategory($this->getTaxCategory('Мойки для ванных комнат'));
+        // $product->setTaxCategory($this->getTaxCategory('Мойки для ванных комнат'));
+        $product->setTaxCategory(null);
         $product->setName(sprintf('Мойка "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
@@ -109,26 +110,26 @@ class LoadProductsData extends DataFixture
 
         $this->addMasterVariant($product);
 
-        $this->setTaxons($product, array('Категории', 'Мойки для ванных комнат'));
+        $this->setTaxons($product, array(1, 2));
 
-        // brand.
-        $randomBrand = $this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato'));
-        $this->addProperty($product, 'T-Shirt brand', $randomBrand);
+        // // brand.
+        // $randomBrand = $this->faker->randomElement(array('Nike', 'Adidas', 'Puma', 'Potato'));
+        // $this->addProperty($product, 'T-Shirt brand', $randomBrand);
 
-        // T-Shirt collection.
-        $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement(array('Summer', 'Winter', 'Spring', 'Autumn')), rand(1995, 2012));
-        $this->addProperty($product, 'T-Shirt collection', $randomCollection);
+        // // T-Shirt collection.
+        // $randomCollection = sprintf('Symfony2 %s %s', $this->faker->randomElement(array('Summer', 'Winter', 'Spring', 'Autumn')), rand(1995, 2012));
+        // $this->addProperty($product, 'T-Shirt collection', $randomCollection);
 
-        // T-Shirt material.
-        $randomMaterial = $this->faker->randomElement(array('Polyester', 'Wool', 'Polyester 10% / Wool 90%', 'Potato 100%'));
-        $this->addProperty($product, 'T-Shirt material', $randomMaterial);
+        // // T-Shirt material.
+        // $randomMaterial = $this->faker->randomElement(array('Polyester', 'Wool', 'Polyester 10% / Wool 90%', 'Potato 100%'));
+        // $this->addProperty($product, 'T-Shirt material', $randomMaterial);
 
-        $product->addOption($this->getReference('Sylius.Option.T-Shirt size'));
-        $product->addOption($this->getReference('Sylius.Option.T-Shirt color'));
+        // $product->addOption($this->getReference('Sylius.Option.T-Shirt size'));
+        // $product->addOption($this->getReference('Sylius.Option.T-Shirt color'));
 
-        $this->generateVariants($product);
+        // $this->generateVariants($product);
 
-        $this->setReference('Sylius.Product-'.$i, $product);
+        // $this->setReference('Sylius.Product-'.$i, $product);
 
         return $product;
     }
@@ -272,10 +273,10 @@ class LoadProductsData extends DataFixture
         $variant->setOnHand($this->faker->randomNumber(1));
 
         $productName = explode(' ', $product->getName());
-        $image = clone $this->getReference(
-            'Sylius.Image.'.strtolower($productName[0])
-        );
-        $variant->addImage($image);
+        // $image = clone $this->getReference(
+        //     'Sylius.Image.'.strtolower($productName[0])
+        // );
+        // $variant->addImage($image);
 
         $this->setReference('Sylius.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;
@@ -330,7 +331,7 @@ class LoadProductsData extends DataFixture
     }
 
     /**
-     * Get unique SKU.
+     * Get unique SKU.Sylius.TaxCategory
      *
      * @param integer $length
      *
