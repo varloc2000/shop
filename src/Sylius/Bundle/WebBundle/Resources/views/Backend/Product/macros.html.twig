@@ -9,7 +9,7 @@
         <tr>
             <th class="id">{{ sylius_resource_sort('id', '#id') }}</th>
             <th class="info">{{ sylius_resource_sort('name', 'sylius.product.name'|trans) }}</th>
-            <th class="stock">{{ 'sylius.product.stock'|trans }}</th>
+            {# <th class="stock">{{ 'sylius.product.stock'|trans }}</th> #}
             <th class="retail-price">{{ 'sylius.product.price'|trans }}</th>
             <th class="updated-at">{{ sylius_resource_sort('updatedAt', 'Updated At') }}</th>
             <th class="actions"></th>
@@ -51,7 +51,7 @@
                     <em>{{ 'sylius.product.contain_variants'|trans }}</em>
                 </td>
             {% else %}
-                {% if product.masterVariant.onHand > 0 and product.masterVariant.isAvailable %}
+                {# {% if product.masterVariant.onHand > 0 and product.masterVariant.isAvailable %}
                     <td class="stock in-stock">
                         {{ product.masterVariant.onHand }}
                     </td>
@@ -59,7 +59,7 @@
                     <td class="stock out-of-stock text-muted">
                         <em>{{ 'sylius.out_of_stock'|trans }}</em>
                     </td>
-                {% endif %}
+                {% endif %} #}
             {% endif %}
 
 
