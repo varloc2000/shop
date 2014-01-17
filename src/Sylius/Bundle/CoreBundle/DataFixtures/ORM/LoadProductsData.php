@@ -101,7 +101,7 @@ class LoadProductsData extends DataFixture
     {
         $product = $this->createProduct();
 
-        // $product->setTaxCategory($this->getTaxCategory('Мойки для ванных комнат'));
+        // $product->setTaxCategory($this->getTaxCategory('1'));
         $product->setTaxCategory(null);
         $product->setName(sprintf('Мойка "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
