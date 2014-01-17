@@ -6,6 +6,9 @@ body {
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.alert {
+    margin-top: 60px!important;
+}
 .container > .row.row-background {
     position: fixed;
     display: block;
