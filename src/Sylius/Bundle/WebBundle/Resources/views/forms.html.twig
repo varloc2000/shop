@@ -133,42 +133,55 @@
     {% endspaceless %}
 {% endblock %}
 
-{# {% block collection_widget %}
+{% block collection_widget %}
 {% spaceless %}
     {% if prototype is defined %}
-        {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
+        {% set attr = attr|merge({'data-prototype': block('collection_item_widget') }) %}
     {% endif %}
     <div id="collection-{{ form.vars.name }}" {{ block('widget_container_attributes') }}>
         {% if form.parent is empty %}
             {{ form_errors(form) }}
         {% endif %}
         {% for child in form %}
-            <div id="collection-item-{{ child.vars.name }}" class="form-group">
-                <div class="col-lg-9">
-                    <div class="input-group">
-                        {{ form_widget(child) }}
-                        <span class="input-group-btn">
-                            <a href="#"
-                                class="btn btn-danger btn-sm"
-                                data-collection-button="delete"
-                                data-dismiss="{{ child.vars.name }}">
-                                <i class="glyphicon glyphicon-trash only-icon"></i>
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            {{ _self.collection_item(child, form.vars) }}
         {% endfor %}
     </div>
 
-    {# Collection add btn # }
-    <a href="#"
-        class="btn btn-primary btn-block"
-        data-collection-button="add"
-        data-prototype="collection-{{ form.vars.name }}"
-        data-collection="collection-{{ form.vars.name }}"
-    >
-        {{ "sylius.form.option_value.add_value"|trans }}
-    </a>
+    {# Collection add btn #}
+    {% if form.vars.allow_add %}
+        <a href="#"
+            class="btn btn-primary"
+            data-collection-button="add"
+            data-prototype="collection-{{ form.vars.name }}"
+            data-collection="collection-{{ form.vars.name }}"
+        >
+            <i class="glyphicon glyphicon-plus"></i>
+            {{ "sylius.form.option_value.add_value"|trans }}
+        </a>
+    {% endif %}
 {% endspaceless %}
-{% endblock collection_widget %} #}
+{% endblock collection_widget %}
+
+{% block collection_item_widget %}
+{% spaceless %}
+    {{ _self.collection_item(prototype, form.vars) }}
+{% endspaceless %}
+{% endblock collection_item_widget %}
+
+{% macro collection_item(form, options) %}
+    <div id="collection-item-{{ form.vars.name }}" class="form-group">
+        <div class="col-lg-10">
+            {{ form_widget(form) }}
+        </div>
+        {% if options.allow_delete %}
+            <div class="col-lg-1">
+                <a href="#"
+                    class="btn btn-danger btn-xs"
+                    data-collection-button="delete"
+                    data-dismiss="collection-item-{{ form.vars.name }}">
+                    <i class="glyphicon glyphicon-remove only-icon"></i>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

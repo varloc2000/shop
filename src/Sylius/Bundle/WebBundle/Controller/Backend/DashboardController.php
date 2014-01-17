@@ -26,16 +26,22 @@ class DashboardController extends Controller
      */
     public function mainAction()
     {
-        $orderRepository = $this->get('sylius.repository.order');
+        $productRepository = $this->get('sylius.repository.product');
         $userRepository  = $this->get('sylius.repository.user');
 
+        $productCount = $productRepository
+            ->createQueryBuilder('p')
+            ->select('count(p)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
         return $this->render('SyliusWebBundle:Backend/Dashboard:main.html.twig', array(
-            'orders_count'        => $orderRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
-            'orders'              => $orderRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
-            'users'               => $userRepository->findBy(array(), array('id' => 'desc'), 5),
-            'registrations_count' => $userRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
-            'sales'               => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
-            'sales_confirmed'     => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime(), OrderStates::ORDER_CONFIRMED),
+            // 'orders_count'        => $orderRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
+            'product_count' => $productCount,
+            // 'users'               => $userRepository->findBy(array(), array('id' => 'desc'), 5),
+            // 'registrations_count' => $userRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
+            // 'sales'               => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
+            // 'sales_confirmed'     => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime(), OrderStates::ORDER_CONFIRMED),
         ));
     }
 }

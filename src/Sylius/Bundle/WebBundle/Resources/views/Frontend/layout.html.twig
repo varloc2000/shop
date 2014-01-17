@@ -33,13 +33,20 @@
     <body>
         <div class="container">
         {% block header %}
-            <div class="masthead pull-right">
+            <nav class="shop-menu navbar navbar-default navbar-fixed-top collapse navbar-collapse" role="navigation">
+                <a class="logo navbar-brand" href="{{ path('sylius_homepage') }}" title="{{ 'sylius.logo'|trans }}"><span>{{ 'sylius.logo'|trans }}</span></a>
+                <div class="col-lg-3">
+                    {{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
+                </div>
+
+                <div class="shop-info navbar-text col-lg-6">
+                    {% for phone in settings.phones %}
+                        {# {{ phone.operator }}: {{ phone.number }} #}
+                    {% endfor %}
+                </div>
+
                 {{ knp_menu_render('sylius.frontend.main', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-            </div>
-            <div class="currency-menu masthead pull-right">
-                {{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-            </div>
-            <h1 class="logo"><a href="{{ path('sylius_homepage') }}" title="{{ 'sylius.logo'|trans }}"><span>{{ 'sylius.logo'|trans }}</span></a></h1>
+            </nav>
         {% endblock %}
 
         {% block flashes %}
@@ -55,6 +62,8 @@
 
         {% block main %}
         <hr>
+        <div class="row row-background">
+        </div>
         <div class="row">
             <div class="col-md-3" id="sidebar">
                 {% block sidebar %}
@@ -81,8 +90,8 @@
 
         {% block footer %}
             <div class="footer">
-                <p class="text-muted">
-                    &copy; unitacc, 2014 - {{ 'now'|date('Y') }}.
+                <p class="text-muted text-center">
+                    &copy; varloc2000, 2014{{ 2014 != 'now'|date('Y') ? ' - ' ~ 'now'|date('Y') : '' }}.
                 </p>
             </div>
         {% endblock %}

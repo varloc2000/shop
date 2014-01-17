@@ -242,6 +242,10 @@
         <source>sylius.backend.statistics.orders_this_month</source>
         <target>Заказов в этом месяце</target>
       </trans-unit>
+      <trans-unit id="sylius.backend.statistics.product_count" resname="sylius.backend.statistics.product_count">
+        <source>sylius.backend.statistics.product_count</source>
+        <target>Товаров в магазине</target>
+      </trans-unit>
       <trans-unit id="a29196b0ea143d08b2a062c7ac870c6e" resname="sylius.backend.statistics.registrations_this_month">
         <source>sylius.backend.statistics.registrations_this_month</source>
         <target>Регистраций в этом месяце</target>
@@ -804,7 +808,7 @@
       </trans-unit>
       <trans-unit id="0d2f8b16705b1d604ce78637fb0e87ab" resname="sylius.logo">
         <source>sylius.logo</source>
-        <target>Sylius</target>
+        <target>Santechmrkt.by</target>
       </trans-unit>
       <trans-unit id="3a3a6fc29d7eaa3e9cf3b3f4b6337939" resname="sylius.manage">
         <source>sylius.manage</source>

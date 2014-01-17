@@ -22,6 +22,7 @@
         <parameter key="sylius.settings.manager.class">Sylius\Bundle\SettingsBundle\Manager\SettingsManager</parameter>
         <parameter key="sylius.settings.schema_registry.class">Sylius\Bundle\SettingsBundle\Schema\SchemaRegistry</parameter>
         <parameter key="sylius.settings.twig.class">Sylius\Bundle\SettingsBundle\Twig\SyliusSettingsExtension</parameter>
+        <parameter key="sylius.form.type.phone.class">Sylius\Bundle\SettingsBundle\Form\Type\PhoneType</parameter>
     </parameters>
 
     <services>
@@ -50,6 +51,11 @@
         <service id="sylius.settings.twig" class="%sylius.settings.twig.class%">
             <argument type="service" id="sylius.settings.manager" />
             <tag name="twig.extension" />
+        </service>
+
+        <!-- Custom phone form type -->
+        <service id="sylius.form.type.phone" class="%sylius.form.type.phone.class%">
+            <tag name="form.type" alias="sylius_phone" />
         </service>
     </services>
 
