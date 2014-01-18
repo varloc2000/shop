@@ -20,6 +20,7 @@
         <field name="shortDescription" column="short_description" type="string" nullable="true" />
         <field name="variantSelectionMethod" column="variant_selection_method" type="string" nullable="false" />
         <field name="showOnHomepage" column="show_on_homepage" type="boolean" nullable="false" />
+        <field name="isNew" column="is_new" type="boolean" nullable="false" />
         
         <many-to-one field="taxCategory" target-entity="Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface">
             <join-column name="tax_category_id" referenced-column-name="id" nullable="true" />

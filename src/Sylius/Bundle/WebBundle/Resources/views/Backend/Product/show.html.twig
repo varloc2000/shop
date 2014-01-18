@@ -67,6 +67,10 @@
                     <td><span class="label label-{{ product.showOnHomePage ? 'success' : 'danger' }}">{{ (product.showOnHomePage) ? 'Да' : 'Нет' }}</span></td>
                 </tr>
                 <tr>
+                    <td>{{ 'Новинка'|trans }}</td>
+                    <td><span class="label label-{{ product.isNew ? 'success' : 'danger' }}">{{ (product.isNew) ? 'Да' : 'Нет' }}</span></td>
+                </tr>
+                <tr>
                     <td>{{ 'sylius.product.options'|trans }}</td>
                     <td>
                         {% if product.options|length > 0 %}

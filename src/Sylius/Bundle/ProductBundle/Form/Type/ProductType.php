@@ -56,6 +56,9 @@ class ProductType extends AbstractType
             ->add('showOnHomepage', null, array(
                 'label' => "Показывать на галвной"
             ))
+            ->add('isNew', null, array(
+                'label' => 'Новинка'
+            ))
             ->add('availableOn', 'datetime', array(
                 'date_format' => 'y-M-d',
                 'date_widget' => 'choice',
