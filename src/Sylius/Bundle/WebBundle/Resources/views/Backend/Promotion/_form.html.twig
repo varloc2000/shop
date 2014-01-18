@@ -1,23 +1,23 @@
 {% form_theme form 'SyliusWebBundle:Backend/Promotion:_forms.html.twig' %}
 
 <div class="row">
-    <div class="col-md-8 row-split">
+    <div class="col-md-8">
         {{ form_row(form.name, {'attr': {'class': 'input-lg'}}) }}
         {{ form_row(form.description) }}
-        {{ form_row(form.usageLimit) }}
+        {# {{ form_row(form.usageLimit) }} #}
         {{ form_row(form.startsAt) }}
         {{ form_row(form.endsAt) }}
         
         {% if promotion is defined and promotion.path is not null %}
             <img src="{{ promotion.path|imagine_filter('sylius_200x200') }}" alt="{{ promotion.path }}" />
         {% endif %}
-
+        <div>
+        {{ form_widget(form.file) }}
+        </div>
         {# {{ form_row(form.couponBased) }} #}
-        {{ form_widget(form._token) }}
-        {{ form_widget(form.file)}}
     </div>
 
-    <div class="col-md-4">
+    {# <div class="col-md-4">
             <div id="sylius_promotion_rules" data-prototype="{{ form_widget(form.rules.vars.prototype)|e }}">
                 {% for ruleForm in form.rules %}
                     {{ form_row(ruleForm.type) }}
@@ -35,7 +35,8 @@
                 {% endfor %}
             </div>
             <a href="#" class="btn btn-success btn-block" data-collection-button="add" data-prototype="sylius_promotion_actions" data-collection="sylius_promotion_actions">{{ 'sylius.promotion.add_action'|trans }}</a>
-    </div>
+    </div> #}
+        {{ form_widget(form._token) }}
 </div>
 
 <hr>

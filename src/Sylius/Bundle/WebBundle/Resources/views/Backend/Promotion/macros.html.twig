@@ -9,9 +9,9 @@
             <tr>
                 <th>{{ sylius_resource_sort('id', '#id') }}</th>
                 <th>{{ sylius_resource_sort('name', 'sylius.promotion.name'|trans) }}</th>
-                <th>{{ sylius_resource_sort('couponBased', 'sylius.promotion.coupon_based'|trans) }}</th>
-                <th>{{ sylius_resource_sort('usageLimit', 'sylius.promotion.usage_limit'|trans) }}</th>
-                <th>{{ sylius_resource_sort('used', 'sylius.promotion.used'|trans) }}</th>
+                {# <th>{{ sylius_resource_sort('couponBased', 'sylius.promotion.coupon_based'|trans) }}</th> #}
+                {# <th>{{ sylius_resource_sort('usageLimit', 'sylius.promotion.usage_limit'|trans) }}</th> #}
+                {# <th>{{ sylius_resource_sort('used', 'sylius.promotion.used'|trans) }}</th> #}
                 <th>{{ sylius_resource_sort('startsAt', 'sylius.promotion.starts_at'|trans) }}</th>
                 <th>{{ sylius_resource_sort('endsAt', 'sylius.promotion.ends_at'|trans) }}</th>
                 <th></th>
@@ -27,21 +27,21 @@
                     <a href="{{ path('sylius_backend_promotion_show', {'id': promotion.id})}}" class="btn btn-link">{{ promotion.name }}</a>
                     <p class="hidden-xs">{{ promotion.description }}</p>
                 </td>
-                <td>
+                {# <td>
                     <span class="label label-{{ promotion.couponBased ? 'success' : 'default'}}">
                         {{ promotion.couponBased ? 'sylius.yes'|trans : 'sylius.no'|trans }}
                     </span>
-                </td>
-                <td>
+                </td> #}
+               {#  <td>
                     <span class="label label-info">
                         {{ promotion.usageLimit|default('sylius.no'|trans) }}
                     </span>
-                </td>
-                <td>
+                </td> #}
+                {# <td>
                     <span class="label label-{{ promotion.used < promotion.usageLimit|default(1) ? 'success' : 'danger'}}">
                         {{ promotion.used }}
                     </span>
-                </td>
+                </td> #}
                 <td>{{ promotion.startsAt is empty ? '-' : promotion.startsAt|date }}</td>
                 <td>{{ promotion.endsAt is empty ? '-' : promotion.endsAt|date }}</td>
                 <td>

@@ -36,6 +36,11 @@
             </thead>
             <tbody>
                 <tr>
+                    {% if promotion is defined and promotion.path is not null %}
+                        <img src="{{ promotion.path|imagine_filter('sylius_200x200') }}" alt="{{ promotion.path }}" />
+                    {% endif %}
+                </tr>    
+                <tr>
                     <td><strong>{{ 'sylius.promotion.id'|trans }}</strong></td>
                     <td>{{ promotion.id }}</td>
                 </tr>
@@ -43,10 +48,10 @@
                     <td><strong>{{ 'sylius.promotion.name'|trans }}</strong></td>
                     <td>{{ promotion.name }}</td>
                 </tr>
-                <tr>
+                {# <tr>
                     <td><strong>{{ 'sylius.promotion.coupon_based'|trans }}</strong></td>
                     <td>{{ promotion.couponBased ? 'sylius.yes'|trans : 'sylius.no'|trans }}</td>
-                </tr>
+                </tr> #}
                 <tr>
                     <td><strong>{{ 'sylius.promotion.starts_at'|trans }}</strong></td>
                     <td>{{ promotion.startsAt is empty ? '-' : promotion.startsAt|date }}</td>
@@ -55,22 +60,22 @@
                     <td><strong>{{ 'sylius.promotion.ends_at'|trans }}</strong></td>
                     <td>{{ promotion.endsAt is empty ? '-' : promotion.endsAt|date }}</td>
                 </tr>
-                <tr>
+                {# <tr>
                     <td><strong>{{ 'sylius.promotion.usage_limit'|trans }}</strong></td>
                     <td>
                         <span class="label label-info">
                             {{ promotion.usageLimit|default('sylius.no'|trans) }}
                         </span>
                     </td>
-                </tr>
-                <tr>
+                </tr> #}
+                {# <tr>
                     <td><strong>{{ 'sylius.promotion.used'|trans }}</strong></td>
                     <td>
                         <span class="label label-{{ promotion.used < promotion.usageLimit|default(1) ? 'success' : 'danger'}}">
                             {{ promotion.used }}
                         </span>
                     </td>
-                </tr>
+                </tr> #}
             </tbody>
         </table>
     </div>
