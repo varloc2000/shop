@@ -27,25 +27,25 @@ class LoadPromotionsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $promotion = $this->createPromotion(
-            'New Year',
-            'New Year Sale for 3 and more items.',
-            array($this->createRule(RuleInterface::TYPE_ITEM_COUNT, array('count' => 3, 'equal' => true))),
-            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 500)))
-        );
+        // $promotion = $this->createPromotion(
+        //     'New Year',
+        //     'New Year Sale for 3 and more items.',
+        //     array($this->createRule(RuleInterface::TYPE_ITEM_COUNT, array('count' => 3, 'equal' => true))),
+        //     array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 500)))
+        // );
 
-        $manager->persist($promotion);
+        // $manager->persist($promotion);
 
-        $promotion = $this->createPromotion(
-            'Christmas',
-            'Christmas Sale for orders over 100 EUR.',
-            array($this->createRule(RuleInterface::TYPE_ITEM_TOTAL, array('amount' => 10000, 'equal' => true))),
-            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 250)))
-        );
+        // $promotion = $this->createPromotion(
+        //     'Christmas',
+        //     'Christmas Sale for orders over 100 EUR.',
+        //     array($this->createRule(RuleInterface::TYPE_ITEM_TOTAL, array('amount' => 10000, 'equal' => true))),
+        //     array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 250)))
+        // );
 
-        $manager->persist($promotion);
+        // $manager->persist($promotion);
 
-        $manager->flush();
+        // $manager->flush();
     }
 
     /**

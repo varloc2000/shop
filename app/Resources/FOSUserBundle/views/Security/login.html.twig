@@ -11,10 +11,10 @@
     </div>
 {% endif %}
 
-<blockquote>
+{# <blockquote>
   <p>Please login using "<strong>sylius@example.com</strong>" email and "<strong>sylius</strong>" as password.</p>
   <small>Mr. Sylius Demo Guide</small>
-</blockquote>
+</blockquote> #}
 
 <form action="{{ path('fos_user_security_check') }}" method="post" class="form-horizontal">
 <fieldset>
@@ -41,9 +41,9 @@
     </div>
 </fieldset>
 <div class="form-actions clearfix">
-    <div class="pull-right">
+    {# <div class="pull-right">
         {{ render(url('hwi_oauth_connect')) }}
-    </div>
+    </div> #}
     <button type="submit" class="btn btn-primary btn-lg" name="login"><i class="icon-lock"></i> Login</button>
 </div>
 </form>

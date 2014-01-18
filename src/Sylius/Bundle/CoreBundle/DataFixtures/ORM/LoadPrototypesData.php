@@ -25,19 +25,19 @@ class LoadPrototypesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $prototype = $this->createPrototype('T-Shirt', array('T-Shirt size', 'T-Shirt color'), array('T-Shirt brand', 'T-Shirt collection', 'T-Shirt material'));
-        $manager->persist($prototype);
+        // $prototype = $this->createPrototype('T-Shirt', array('T-Shirt size', 'T-Shirt color'), array('T-Shirt brand', 'T-Shirt collection', 'T-Shirt material'));
+        // $manager->persist($prototype);
 
-        $prototype = $this->createPrototype('Sticker', array('Sticker size'), array('Sticker resolution', 'Sticker paper'));
-        $manager->persist($prototype);
+        // $prototype = $this->createPrototype('Sticker', array('Sticker size'), array('Sticker resolution', 'Sticker paper'));
+        // $manager->persist($prototype);
 
-        $prototype = $this->createPrototype('Mug', array('Mug type'), array('Mug material'));
-        $manager->persist($prototype);
+        // $prototype = $this->createPrototype('Mug', array('Mug type'), array('Mug material'));
+        // $manager->persist($prototype);
 
-        $prototype = $this->createPrototype('Book', array(), array('Book author', 'Book ISBN', 'Book pages'));
-        $manager->persist($prototype);
+        // $prototype = $this->createPrototype('Book', array(), array('Book author', 'Book ISBN', 'Book pages'));
+        // $manager->persist($prototype);
 
-        $manager->flush();
+        // $manager->flush();
     }
 
     /**

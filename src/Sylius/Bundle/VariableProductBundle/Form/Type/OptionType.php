@@ -63,7 +63,7 @@ class OptionType extends AbstractType
             ->add('values', 'collection', array(
                 'type'         => 'sylius_option_value',
                 'allow_add'    => true,
-                'allow_delete' => true,
+                'allow_delete' => false,
                 'by_reference' => false,
                 'label'        => 'sylius.form.option.values'
             ))

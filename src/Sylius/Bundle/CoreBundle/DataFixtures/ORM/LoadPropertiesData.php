@@ -25,31 +25,13 @@ class LoadPropertiesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $property = $this->createProperty('T-Shirt brand', 'Brand');
+        $property = $this->createProperty('Производитель ванной', 'Производитель');
         $manager->persist($property);
 
-        $property = $this->createProperty('T-Shirt collection', 'Collection');
+        $property = $this->createProperty('Коллекция ванной', 'Коллекция');
         $manager->persist($property);
 
-        $property = $this->createProperty('T-Shirt material', 'Made of');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Sticker resolution', 'Print resolution');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Sticker paper', 'Paper');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Mug material', 'Material');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Book author', 'Author');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Book ISBN', 'ISBN');
-        $manager->persist($property);
-
-        $property = $this->createProperty('Book pages', 'Number of pages');
+        $property = $this->createProperty('Материал ванной', 'Материал');
         $manager->persist($property);
 
         $manager->flush();

@@ -28,9 +28,9 @@ class LoadExchangeRatesData extends DataFixture
         $exchangeRateRepository = $this->getExchangeRateRepository();
 
         $currencies = array(
-            'EUR' => 1.00,
-            'USD' => 1.30,
-            'GBP' => 0.85
+            'USD' => 1.00,
+            'EUR' => 1.30,
+            'BYR' => 0.00009,
         );
 
         foreach ($currencies as $currency => $rate) {

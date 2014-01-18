@@ -24,5 +24,11 @@
             var item = $(this).closest('.sylius-assortment-variant-images-image');
             item.remove();
         });
+        $(document).on('click', 'a[data-collection-button="delete"]', function(e) {
+            e.preventDefault();
+            console.log($(this).closest('#' + $(this).data('dismiss')));
+            var item = $(this).closest('#' + $(this).data('dismiss'));
+            item.remove();
+        });
     });
 })( jQuery );

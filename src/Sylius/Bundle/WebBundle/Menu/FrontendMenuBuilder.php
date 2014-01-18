@@ -97,66 +97,80 @@ class FrontendMenuBuilder extends MenuBuilder
     {
         $menu = $this->factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav nav-pills'
+                'class' => 'nav navbar-nav navbar-right'
             )
         ));
 
-        $cart = $this->cartProvider->getCart();
+        // $cart = $this->cartProvider->getCart();
 
-        $menu->addChild('cart', array(
-            'route' => 'sylius_cart_summary',
-            'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.cart', array(
-                '%items%' => $cart->getTotalItems(),
-                '%total%' => $this->moneyExtension->formatPrice($cart->getTotal())
-            ))),
-            'labelAttributes' => array('icon' => 'icon-shopping-cart icon-large')
-        ))->setLabel($this->translate('sylius.frontend.menu.main.cart', array(
-            '%items%' => $cart->getTotalItems(),
-            '%total%' => $this->moneyExtension->formatPrice($cart->getTotal())
-        )));
+        // $menu->addChild('cart', array(
+        //     'route' => 'sylius_cart_summary',
+        //     'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.cart', array(
+        //         '%items%' => $cart->getTotalItems(),
+        //         '%total%' => $this->moneyExtension->formatPrice($cart->getTotal())
+        //     ))),
+        //     'labelAttributes' => array('icon' => 'icon-shopping-cart icon-large')
+        // ))->setLabel($this->translate('sylius.frontend.menu.main.cart', array(
+        //     '%items%' => $cart->getTotalItems(),
+        //     '%total%' => $this->moneyExtension->formatPrice($cart->getTotal())
+        // )));
 
         if ($this->securityContext->isGranted('ROLE_USER')) {
-            $route = $this->request === null ? '' : $this->request->get('_route');
 
-            if (1 === preg_match('/^(sylius_account)|(fos_user)/', $route)) {
-                $menu->addChild('shop', array(
-                    'route' => 'sylius_homepage',
-                    'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.shop')),
-                    'labelAttributes' => array('icon' => 'icon-th icon-large', 'iconOnly' => false)
-                ))->setLabel($this->translate('sylius.frontend.menu.account.shop'));
-            } else {
-                $menu->addChild('account', array(
-                    'route' => 'sylius_account_homepage',
-                    'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.account')),
-                    'labelAttributes' => array('icon' => 'icon-user icon-large', 'iconOnly' => false)
-                ))->setLabel($this->translate('sylius.frontend.menu.main.account'));
-            }
+            $menu->addChild('managment', array(
+                'attributes' => array(
+                    'class' => 'dropdown',
+                ),
+                'childrenAttributes' => array(
+                    'class' => 'dropdown-menu',
+                ),
+                'route' => 'sylius_backend_dashboard',
+                'linkAttributes' => array(
+                    'class' => 'dropdown-toggle',
+                    'data-toggle' => 'dropdown',
+                    'title' => $this->translate('sylius.frontend.menu.main.managment')
+                ),
+                'labelAttributes' => array(
+                    'icon' => 'glyphicon glyphicon-cog',
+                    'iconOnly' => true,
+                )
+            ))->setLabel($this->translate('sylius.frontend.menu.main.managment'));
 
-            $menu->addChild('logout', array(
+            $managment = $menu->getChild('managment');
+
+            $managment->addChild('account', array(
+                'route' => 'sylius_account_homepage',
+                'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.account')),
+                'labelAttributes' => array('icon' => 'glyphicon glyphicon-user', 'iconOnly' => false)
+            ))->setLabel($this->translate('sylius.frontend.menu.main.account'));
+
+            $managment->addChild('logout', array(
                 'route' => 'fos_user_security_logout',
                 'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.logout')),
-                'labelAttributes' => array('icon' => 'icon-off icon-large', 'iconOnly' => false)
+                'labelAttributes' => array('icon' => 'glyphicon glyphicon-off', 'iconOnly' => false)
             ))->setLabel($this->translate('sylius.frontend.menu.main.logout'));
-        } else {
-            $menu->addChild('login', array(
-                'route' => 'fos_user_security_login',
-                'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.login')),
-                'labelAttributes' => array('icon' => 'icon-lock icon-large', 'iconOnly' => false)
-            ))->setLabel($this->translate('sylius.frontend.menu.main.login'));
-            $menu->addChild('register', array(
-                'route' => 'fos_user_registration_register',
-                'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.register')),
-                'labelAttributes' => array('icon' => 'icon-user icon-large', 'iconOnly' => false)
-            ))->setLabel($this->translate('sylius.frontend.menu.main.register'));
-        }
 
-        if ($this->securityContext->isGranted('ROLE_SYLIUS_ADMIN')) {
-            $menu->addChild('administration', array(
-                'route' => 'sylius_backend_dashboard',
-                'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.administration')),
-                'labelAttributes' => array('icon' => 'icon-briefcase icon-large', 'iconOnly' => false)
-            ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
+
+            if ($this->securityContext->isGranted('ROLE_SYLIUS_ADMIN')) {
+                $managment->addChild('administration', array(
+                    'route' => 'sylius_backend_dashboard',
+                    'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.administration')),
+                    'labelAttributes' => array('icon' => 'glyphicon glyphicon-wrench', 'iconOnly' => false)
+                ))->setLabel($this->translate('sylius.frontend.menu.main.administration'));
+            }
         }
+        // else {
+        //     $menu->addChild('login', array(
+        //         'route' => 'fos_user_security_login',
+        //         'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.login')),
+        //         'labelAttributes' => array('icon' => 'icon-lock icon-large', 'iconOnly' => false)
+        //     ))->setLabel($this->translate('sylius.frontend.menu.main.login'));
+        //     $menu->addChild('register', array(
+        //         'route' => 'fos_user_registration_register',
+        //         'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.main.register')),
+        //         'labelAttributes' => array('icon' => 'icon-user icon-large', 'iconOnly' => false)
+        //     ))->setLabel($this->translate('sylius.frontend.menu.main.register'));
+        // }
 
         return $menu;
     }
@@ -170,7 +184,7 @@ class FrontendMenuBuilder extends MenuBuilder
     {
         $menu = $this->factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav nav-pills'
+                'class' => 'nav navbar-nav',
             )
         ));
 
@@ -310,17 +324,17 @@ class FrontendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'icon-lock', 'iconOnly' => false)
         ))->setLabel($this->translate('sylius.frontend.menu.account.password'));
 
-        $child->addChild('orders', array(
-            'route' => 'sylius_account_order_index',
-            'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.orders')),
-            'labelAttributes' => array('icon' => 'icon-briefcase', 'iconOnly' => false)
-        ))->setLabel($this->translate('sylius.frontend.menu.account.orders'));
+        // $child->addChild('orders', array(
+        //     'route' => 'sylius_account_order_index',
+        //     'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.orders')),
+        //     'labelAttributes' => array('icon' => 'icon-briefcase', 'iconOnly' => false)
+        // ))->setLabel($this->translate('sylius.frontend.menu.account.orders'));
 
-        $child->addChild('addresses', array(
-            'route' => 'sylius_account_address_index',
-            'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.addresses')),
-            'labelAttributes' => array('icon' => 'icon-envelope', 'iconOnly' => false)
-        ))->setLabel($this->translate('sylius.frontend.menu.account.addresses'));
+        // $child->addChild('addresses', array(
+        //     'route' => 'sylius_account_address_index',
+        //     'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.account.addresses')),
+        //     'labelAttributes' => array('icon' => 'icon-envelope', 'iconOnly' => false)
+        // ))->setLabel($this->translate('sylius.frontend.menu.account.addresses'));
 
         return $menu;
     }

@@ -45,17 +45,32 @@ class GeneralSettingsSchema implements SchemaInterface
     {
         $builder
             ->setDefaults(array_merge(array(
-                'title'            => 'Sylius - Modern ecommerce for Symfony2',
-                'meta_keywords'    => 'symfony, sylius, ecommerce, webshop, shopping cart',
-                'meta_description' => 'Sylius is modern ecommerce solution for PHP. Based on the Symfony2 framework.',
-                'locale'           => 'en',
+                'title'            => 'Магазин сантехники',
+                'meta_keywords'    => 'Сантехника, интернет магазин, интернет-магазин, магазин, ванны, Минск, Беларусь',
+                'meta_description' => 'Интернет магазин мантехники в Минске.',
+                'phones' => array(
+                    array(
+                        'operator' => 'velcom',
+                        'number' => '80295555555',
+                    ),
+                    array(
+                        'operator' => 'мтс',
+                        'number' => '80291111111',
+                    ),
+                ),
+                'email' => 'shop@gmail.com',
+                'address' => 'Minsk',
+                // 'locale'           => 'en',
                 'currency'         => 'USD',
             ), $this->defaults))
             ->setAllowedTypes(array(
                 'title'            => array('string'),
                 'meta_keywords'    => array('string'),
                 'meta_description' => array('string'),
-                'locale'           => array('string'),
+                // 'locale'           => array('string'),
+                'phones'           => array('array'),
+                'email'           => array('string'),
+                'address'           => array('string'),
                 'currency'         => array('string'),
             ))
         ;
@@ -85,13 +100,24 @@ class GeneralSettingsSchema implements SchemaInterface
                     new NotBlank()
                 )
             ))
-            ->add('locale', 'locale', array(
-                'label'       => 'sylius.form.settings.general.locale',
-                'constraints' => array(
-                    new NotBlank(),
-                    new Locale(),
-                )
+            ->add('phones', 'collection', array(
+                'type'         => 'sylius_phone',
+                'allow_add'    => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label'        => 'sylius.form.settings.general.phones',
             ))
+            ->add('email', 'email', array())
+            ->add('address', 'text', array(
+                'label'        => 'sylius.form.settings.general.address',
+            ))
+            // ->add('locale', 'locale', array(
+            //     'label'       => 'sylius.form.settings.general.locale',
+            //     'constraints' => array(
+            //         new NotBlank(),
+            //         new Locale(),
+            //     )
+            // ))
             ->add('currency', 'currency', array(
                 'label'       => 'sylius.form.settings.general.currency',
                 'constraints' => array(

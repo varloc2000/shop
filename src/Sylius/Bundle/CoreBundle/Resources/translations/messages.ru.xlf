@@ -70,6 +70,22 @@
                 <source>sylius.form.settings.general.locale</source>
                 <target>Язык</target>
             </trans-unit>
+            <trans-unit id="sylius.form.settings.general.phones" resname="sylius.form.settings.general.phones">
+                <source>sylius.form.settings.general.phones</source>
+                <target>Телефоны</target>
+            </trans-unit>
+            <trans-unit id="sylius.form.settings.general.address" resname="sylius.form.settings.general.address">
+                <source>sylius.form.settings.general.address</source>
+                <target>Адрес</target>
+            </trans-unit>
+            <trans-unit id="sylius.form.phone.operator" resname="sylius.form.phone.operator">
+                <source>sylius.form.phone.operator</source>
+                <target>Опетатор</target>
+            </trans-unit>
+            <trans-unit id="sylius.form.phone.number" resname="sylius.form.phone.number">
+                <source>sylius.form.phone.number</source>
+                <target>Номер</target>
+            </trans-unit>
             <trans-unit id="68d2e3303964c3c80620f67cb5f0ee2f" resname="sylius.form.settings.general.currency">
                 <source>sylius.form.settings.general.currency</source>
                 <target>Валюта по умолчанию</target>
