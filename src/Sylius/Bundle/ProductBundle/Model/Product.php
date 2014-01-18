@@ -39,6 +39,11 @@ class Product implements ProductInterface
     protected $name;
 
     /**
+     * @var boolean
+     */
+    protected $showOnHomepage;
+
+    /**
      * Permalink for the product.
      * Used in url to access it.
      *
@@ -110,6 +115,26 @@ class Product implements ProductInterface
         $this->availableOn = new \DateTime();
         $this->properties = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->showOnHomepage = true;
+    }
+
+    /**
+     * @param boolean $bool 
+     * @return self
+     */
+    public function setShowOnHomapage($bool){
+        
+        $this->showOnHomepage = $bool;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getShowOnHomepage()
+    {
+        return $this->showOnHomepage;
     }
 
     /**

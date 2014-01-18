@@ -91,6 +91,6 @@ class ProductRepository extends VariableProductRepository
      */
     public function findLatest($limit = 10)
     {
-        return $this->findBy(array(), array('createdAt' => 'desc'), $limit);
+        return $this->findBy(array('showOnHomepage' => true), array('createdAt' => 'desc'), $limit);
     }
 }

@@ -51,6 +51,7 @@ class Product extends BaseProduct implements ProductInterface
      */
     protected $variantSelectionMethod;
 
+    public $showOnHomepage;
     /**
      * Taxons.
      *
@@ -85,7 +86,7 @@ class Product extends BaseProduct implements ProductInterface
     public function __construct()
     {
         parent::__construct();
-
+        $this->showOnHomepage = true;
         $this->setMasterVariant(new Variant());
         $this->taxons = new ArrayCollection();
 
@@ -290,5 +291,24 @@ class Product extends BaseProduct implements ProductInterface
             self::VARIANT_SELECTION_CHOICE => 'Variant choice',
             self::VARIANT_SELECTION_MATCH  => 'Options matching',
         );
+    }
+
+    /**
+     * @param boolean $bool 
+     * @return self
+     */
+    public function setShowOnHomapage($bool){
+        
+        $this->showOnHomepage = $bool;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getShowOnHomepage()
+    {
+        return $this->showOnHomepage;
     }
 }

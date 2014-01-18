@@ -53,6 +53,9 @@ class ProductType extends AbstractType
             ->add('description', 'textarea', array(
                 'label' => 'sylius.label.product.description'
             ))
+            ->add('showOnHomepage', null, array(
+                'label' => "Показывать на галвной"
+            ))
             ->add('availableOn', 'datetime', array(
                 'date_format' => 'y-M-d',
                 'date_widget' => 'choice',

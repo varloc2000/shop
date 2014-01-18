@@ -37,6 +37,17 @@ interface ProductInterface extends SoftDeletableInterface, TimestampableInterfac
     public function setName($name);
 
     /**
+     * @param boolean $bool 
+     * @return self
+     */
+    public function setShowOnHomapage($bool);
+        
+    /**
+     * @return boolean
+     */
+    public function getShowOnHomepage();
+
+    /**
      * Get permalink/slug.
      *
      * @return string
