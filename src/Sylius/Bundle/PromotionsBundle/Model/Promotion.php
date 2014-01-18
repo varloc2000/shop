@@ -10,6 +10,7 @@
  */
 
 namespace Sylius\Bundle\PromotionsBundle\Model;
+use Sylius\Bundle\CoreBundle\Model\ImageInterface;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -18,7 +19,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @author Saša Stamenković <umpirsky@gmail.com>
  */
-class Promotion implements PromotionInterface
+class Promotion implements PromotionInterface, ImageInterface
 {
     /**
      * Id
@@ -110,6 +111,16 @@ class Promotion implements PromotionInterface
      * @var \DateTime
      */
     protected $createdAt;
+
+    /**
+     * @var string
+     */
+    protected $path;
+
+    /**
+     * @var \SplFileInfo
+     */
+    protected $file;
 
     /**
      * Constructor
@@ -443,6 +454,52 @@ class Promotion implements PromotionInterface
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @param string $path 
+     * 
+     * @return self;
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * @return string  
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+     /**
+     * {@inheritdoc}
+     */
+    public function hasFile()
+    {
+        return null !== $this->file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setFile(\SplFileInfo $file)
+    {
+        $this->file = $file;
 
         return $this;
     }

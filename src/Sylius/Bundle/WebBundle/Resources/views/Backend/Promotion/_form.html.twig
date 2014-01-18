@@ -7,8 +7,14 @@
         {{ form_row(form.usageLimit) }}
         {{ form_row(form.startsAt) }}
         {{ form_row(form.endsAt) }}
-        {{ form_row(form.couponBased) }}
+        
+        {% if promotion is defined and promotion.path is not null %}
+            <img src="{{ promotion.path|imagine_filter('sylius_200x200') }}" alt="{{ promotion.path }}" />
+        {% endif %}
+
+        {# {{ form_row(form.couponBased) }} #}
         {{ form_widget(form._token) }}
+        {{ form_widget(form.file)}}
     </div>
 
     <div class="col-md-4">

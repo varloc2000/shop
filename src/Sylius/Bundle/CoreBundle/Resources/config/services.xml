@@ -258,10 +258,11 @@
             <tag name="kernel.event_listener" event="sylius.product.pre_update" method="uploadProductImage" />
             <tag name="kernel.event_listener" event="sylius.variant.pre_create" method="uploadProductImage" />
             <tag name="kernel.event_listener" event="sylius.variant.pre_update" method="uploadProductImage" />
-            <tag name="kernel.event_listener" event="sylius.taxon.pre_create" method="uploadTaxonImage" />
-            <tag name="kernel.event_listener" event="sylius.taxon.pre_update" method="uploadTaxonImage" />
+            <tag name="kernel.event_listener" event="sylius.promotion.pre_create" method="uploadPromotionImage" />
+            <tag name="kernel.event_listener" event="sylius.promotion.pre_update" method="uploadPromotionImage" />
             <tag name="kernel.event_listener" event="sylius.taxonomy.pre_create" method="uploadTaxonomyImage" />
             <tag name="kernel.event_listener" event="sylius.taxonomy.pre_update" method="uploadTaxonomyImage" />
+
         </service>
 
         <service id="sylius.image_uploader" class="%sylius.image_uploader.class%">

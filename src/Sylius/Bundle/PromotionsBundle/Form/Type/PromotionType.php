@@ -79,6 +79,11 @@ class PromotionType extends AbstractType
                 'by_reference' => false,
                 'label'        => 'sylius.form.promotion.actions'
             ))
+            ->add('file', 'file', array(
+                // 'property_path' => 'root.file',
+               'label' => 'sylius.form.taxonomy.file',
+            )
+        );
         ;
 
         $prototypes = array();

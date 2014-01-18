@@ -38,6 +38,7 @@ class ImageUploader implements ImageUploaderInterface
             $path = $this->expandPath($hash.'.'.$image->getFile()->guessExtension());
         } while ($this->filesystem->has($path));
 
+        // var_dump($path);exit();
         $image->setPath($path);
 
         $this->filesystem->write(

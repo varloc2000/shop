@@ -41,13 +41,14 @@ class ImageUploadListener
         }
     }
 
-    public function uploadTaxonImage(GenericEvent $event)
+    public function uploadPromotionImage(GenericEvent $event)
     {
         $subject = $event->getSubject();
+        // var_dump($subject);exit();
 
-        if (!$subject instanceof TaxonInterface) {
-            throw new \InvalidArgumentException('TaxonInterface expected.');
-        }
+        // if (!$subject instanceof TaxonInterface) {
+        //     throw new \InvalidArgumentException('TaxonInterface expected.');
+        // }
 
         if ($subject->hasFile()) {
             $this->uploader->upload($subject);

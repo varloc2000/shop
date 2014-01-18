@@ -27,7 +27,7 @@
 
 {{ form_errors(form) }}
 
-<form action="{{ path('sylius_backend_promotion_create') }}" method="post" class="form-horizontal" novalidate>
+<form action="{{ path('sylius_backend_promotion_create') }}" method="post" class="form-horizontal" novalidate {{form_enctype(form) }}>
     {% include 'SyliusWebBundle:Backend/Promotion:_form.html.twig' %}
     {{ create() }}
 </form>
