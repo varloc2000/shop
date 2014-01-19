@@ -810,6 +810,14 @@
         <source>sylius.logo</source>
         <target>Santechmrkt.by</target>
       </trans-unit>
+      <trans-unit id="sylius.na" resname="sylius.na">
+        <source>sylius.na</source>
+        <target>Не установлено</target>
+      </trans-unit>
+      <trans-unit id="sylius.reset" resname="sylius.reset">
+        <source>sylius.reset</source>
+        <target>Сбросить</target>
+      </trans-unit>
       <trans-unit id="3a3a6fc29d7eaa3e9cf3b3f4b6337939" resname="sylius.manage">
         <source>sylius.manage</source>
         <target>Manage</target>

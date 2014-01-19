@@ -142,15 +142,15 @@ class BackendMenuBuilder extends MenuBuilder
      */
     protected function addCustomersMenu(ItemInterface $menu, array $childOptions, $section)
     {
-        $child = $menu
-            ->addChild('customer', $childOptions)
-            ->setLabel($this->translate(sprintf('sylius.backend.menu.%s.customer', $section)))
-        ;
+        // $child = $menu
+        //     ->addChild('customer', $childOptions)
+        //     ->setLabel($this->translate(sprintf('sylius.backend.menu.%s.customer', $section)))
+        // ;
 
-        $child->addChild('users', array(
-            'route' => 'sylius_backend_user_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.users', $section)));
+        // $child->addChild('users', array(
+        //     'route' => 'sylius_backend_user_index',
+        //     'labelAttributes' => array('icon' => 'glyphicon glyphicon-user'),
+        // ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.users', $section)));
     }
 
     /**
