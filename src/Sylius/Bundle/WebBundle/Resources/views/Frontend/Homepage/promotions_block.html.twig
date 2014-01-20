@@ -1,0 +1,27 @@
+{% if promos|length > 0 %}
+    <div class="jumbotron fotorama"
+        data-width="825"
+        data-height="366"
+        data-fit="cover"
+        data-loop="true"
+        data-autoplay="10000"
+    >
+        {% for promo in promos %}
+            <div class="shop-promo" style="display: none;">
+                <img src="{{ promo.path|imagine_filter('sylius_promo_825x366') }}" alt="{{ promo.name }}">
+                <div class="shop-promo-text">
+                    <h2>{{ promo.name }}</h2>
+                    <p class="lead">{{ promo.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.fotorama').on('fotorama:ready', function (e, fotorama) {
+                console.log($('.fotorama .shop-promo'));
+                $('.fotorama .shop-promo').fadeIn('fast');
+            });
+        });
+    </script>
+{% endif %}

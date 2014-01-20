@@ -115,6 +115,9 @@ knp_gaufrette:
 liip_imagine:
     data_root: %kernel.root_dir%/../web/media/image
     filter_sets:
+        sylius_promo_825x366:
+            filters:
+                thumbnail: { size: [825, 366], mode: outbound }
         sylius_16x16:
             filters:
                 thumbnail: { size: [16, 16], mode: outbound }

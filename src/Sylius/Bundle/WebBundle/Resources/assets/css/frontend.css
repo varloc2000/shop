@@ -72,8 +72,133 @@ a.logo a:hover {
 }
 
 .jumbotron {
+    background-color: transparent;
     margin: 20px 0 40px;
     text-align: center;
+    padding: 0!important;
+}
+.jumbotron .shop-promo {
+    background: #f1f1f1;
+    position: relative;
+    cursor: pointer;
+    width: 825px;
+    height: 366px;
+    overflow: hidden;
+}
+
+.jumbotron .shop-promo:after {
+    content: "";
+
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: fadeOutFrom;
+}
+.jumbotron:hover .shop-promo:after {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: fadeInFromNone;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    1% {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+@-webkit-keyframes fadeOutFrom {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    1% {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.jumbotron .shop-promo .shop-promo-text {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 20px;
+    text-shadow: 0px 0px 1px #f1f1f1;
+    color: #fff;
+    z-index: 20;
+}
+.jumbotron .shop-promo .shop-promo-text h1,
+.jumbotron .shop-promo .shop-promo-text h2 {
+    color: #A5CBD6!important;
+}
+
+.fotorama__active .fotorama__dot {
+    /*background: #9FA518!important;*/
+    background: #A5CBD6!important;
+}
+.fotorama__dot {
+    /*background: #D1D82C!important;*/
+    background: #69A5B6!important;
+    width: 12px!important;
+    height: 12px!important;
+    border-radius: 50%!important;
+    border: 1px solid #69A5B6!important;
+    /*border-color: */
+}
+.fotorama__arr {
+    /*background: #D1D82C!important;*/
+    background: #69A5B6!important;
+    box-shadow: 0px 0px 38px -10px #000;
+    text-align: center;
+    font-size: 16px;
+    line-height: 60px;
+    width: 60px!important;
+    height: 60px!important;
+    border-radius: 50%;
+}
+.fotorama__arr:hover {
+    background: #A5CBD6!important;
+}
+.fotorama__arr:before {
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+}
+.fotorama__arr.fotorama__arr--next {
+    margin-right: -27px!important;
+    text-indent: -18px;
+}
+.fotorama__arr.fotorama__arr--next:before {
+    content: "\e080";
+}
+.fotorama__arr.fotorama__arr--prev {
+    margin-left: -27px!important;
+    text-indent: 18px;
+}
+.fotorama__arr.fotorama__arr--prev:before {
+    content: "\e079";
+}
+
+.jumbotron .shop-promo h1,
+.jumbotron .shop-promo h2,
+ {
+    margin: 0 20px;
 }
 
 .jumbotron h1 {
@@ -204,7 +329,7 @@ div.product-box.single-product {
     width: 100%;
 }
 div.product-box.single-product .thumbnail {
-    min-height: 235px;
+    /*min-height: 235px;*/
 }
 div.product-box.single-product .thumbnail > .caption {
     position: absolute;
@@ -215,6 +340,12 @@ div.product-box.single-product .shop-product-price {
 }
 div.product-box .thumbnail img  {
     border: 1px solid #4D9FB6;
+    width: 245px;
+    height: 236px;
+}
+div.product-box.single-product .thumbnail img  {
+    width: 202px;
+    height: 202px;
 }
 div.product-box .thumbnail > a {
     display: inline-block;
@@ -265,7 +396,7 @@ div.product-box a {
 }
 
 div.product-box a img {
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 
 div.product-box h3 {

@@ -1,10 +1,19 @@
 {% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link  href="http://fotorama.s3.amazonaws.com/4.4.9/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- fotorama.css & fotorama.js. -->
+    <script src="http://fotorama.s3.amazonaws.com/4.4.9/fotorama.js"></script> <!-- 15 KB -->
+{% endblock javascripts %}
+
 {% block content %}
-{# <div class="jumbotron">
-    <h1>{{ 'sylius.homepage.splash.headline'|trans }}</h1>
-    <p class="lead">{{ 'sylius.homepage.splash.subheadline'|trans }}</p>
-</div> #}
+
+{{ render(controller('SyliusPromotionsBundle:Promo:promoBlock')) }}
 
 {{ render(url('sylius_partial_product_latest', {'limit': 9, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
 
