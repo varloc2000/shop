@@ -73,7 +73,7 @@ a.logo a:hover {
 
 .jumbotron {
     background-color: transparent;
-    margin: 20px 0 40px;
+    margin: 20px 0;
     text-align: center;
     padding: 0!important;
 }
@@ -83,7 +83,13 @@ a.logo a:hover {
     cursor: pointer;
     width: 825px;
     height: 366px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+}
+.fotorama {
+    overflow: visible!important;
+}
+.fotorama__stage {
+    /*border: 1px solid #4D9FB6;*/
 }
 
 .jumbotron .shop-promo:after {
@@ -97,41 +103,84 @@ a.logo a:hover {
     left: 0;
     z-index: 0;
 
+    animation-duration: 0.5s;
     -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-name: fadeOutFrom;
     -webkit-animation-name: fadeOutFrom;
+    -moz-animation-name: fadeOutFrom;
+    -o-animation-name: fadeOutFrom;
+    -ms-animation-name: fadeOutFrom;
 }
 .jumbotron:hover .shop-promo:after {
     background-color: rgba(0, 0, 0, 0.5);
 
+    animation-duration: 0.5s;
     -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -o-animation-duration: 0.5s;
+    -ms-animation-duration: 0.5s;
+    animation-name: fadeInFromNone;
     -webkit-animation-name: fadeInFromNone;
+    -moz-animation-name: fadeInFromNone;
+    -o-animation-name: fadeInFromNone;
+    -ms-animation-name: fadeInFromNone;
 }
 
+@keyframes fadeInFromNone {
+    0% { background-color: rgba(0, 0, 0, 0); }
+    1% { background-color: rgba(0, 0, 0, 0.1); }
+    100% { background-color: rgba(0, 0, 0, 0.5); }
+}
+@keyframes fadeOutFrom {
+    0% { background-color: rgba(0, 0, 0, 0.5); }
+    1% { background-color: rgba(0, 0, 0, 0.4); }
+    100% { background-color: rgba(0, 0, 0, 0); }
+}
 @-webkit-keyframes fadeInFromNone {
-    0% {
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    1% {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    100% {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+    0% { background-color: rgba(0, 0, 0, 0); }
+    1% { background-color: rgba(0, 0, 0, 0.1); }
+    100% { background-color: rgba(0, 0, 0, 0.5); }
 }
 @-webkit-keyframes fadeOutFrom {
-    0% {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    1% {
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    100% {
-        background-color: rgba(0, 0, 0, 0);
-    }
+    0% { background-color: rgba(0, 0, 0, 0.5); }
+    1% { background-color: rgba(0, 0, 0, 0.4); }
+    100% { background-color: rgba(0, 0, 0, 0); }
+}
+@-moz-keyframes fadeInFromNone {
+    0% { background-color: rgba(0, 0, 0, 0); }
+    1% { background-color: rgba(0, 0, 0, 0.1); }
+    100% { background-color: rgba(0, 0, 0, 0.5); }
+}
+@-moz-keyframes fadeOutFrom {
+    0% { background-color: rgba(0, 0, 0, 0.5); }
+    1% { background-color: rgba(0, 0, 0, 0.4); }
+    100% { background-color: rgba(0, 0, 0, 0); }
+}
+@-o-keyframes fadeInFromNone {
+    0% { background-color: rgba(0, 0, 0, 0); }
+    1% { background-color: rgba(0, 0, 0, 0.1); }
+    100% { background-color: rgba(0, 0, 0, 0.5); }
+}
+@-o-keyframes fadeOutFrom {
+    0% { background-color: rgba(0, 0, 0, 0.5); }
+    1% { background-color: rgba(0, 0, 0, 0.4); }
+    100% { background-color: rgba(0, 0, 0, 0); }
+}
+.jumbotron .shop-promo .period-badge {
+    position: absolute;
+    color: #FFF;
+    line-height: 30px;
+    padding: 0 7px;
+    box-shadow: 0px 1px 7px -3px #0C194D;
+    background-color: #D7B157;
+    border-bottom-left-radius: 32px;
+    border-top-left-radius: 32px;
+    top: 22px;
+    right: 0px;
+    z-index: 100;
 }
 
 .jumbotron .shop-promo .shop-promo-text {

@@ -9,6 +9,16 @@
         {% for promo in promos %}
             <div class="shop-promo" style="display: none;">
                 <img src="{{ promo.path|imagine_filter('sylius_promo_825x366') }}" alt="{{ promo.name }}">
+                {% if promo.startsAt or promo.endsAt %}
+                    <div class="period-badge">
+                        {%- if promo.startsAt -%}
+                            с {{ promo.startsAt|date('Y-m-d') }}
+                        {%- endif -%}
+                        {%- if promo.endsAt -%}&nbsp;
+                            по {{ promo.endsAt|date('Y-m-d') }}
+                        {%- endif -%}
+                    </div>
+                {% endif %}
                 <div class="shop-promo-text">
                     <h2>{{ promo.name }}</h2>
                     <p class="lead">{{ promo.description }}</p>
@@ -16,6 +26,8 @@
             </div>
         {% endfor %}
     </div>
+    <hr/>
+    <br/>
     <script>
         $(document).ready(function() {
             $('.fotorama').on('fotorama:ready', function (e, fotorama) {
