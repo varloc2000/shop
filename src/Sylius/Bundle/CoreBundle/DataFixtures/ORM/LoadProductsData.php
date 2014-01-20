@@ -105,6 +105,8 @@ class LoadProductsData extends DataFixture
         $product->setTaxCategory(null);
         $product->setName(sprintf('Мойка "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
+        $product->setShowOnHomapage(true);
+        $product->setIsNew(rand(0, 1));
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 

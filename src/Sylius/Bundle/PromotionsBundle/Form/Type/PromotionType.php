@@ -49,7 +49,7 @@ class PromotionType extends AbstractType
             ->add('name', 'text', array(
                 'label' => 'sylius.form.promotion.name'
             ))
-            ->add('description', 'text', array(
+            ->add('description', 'textarea', array(
                 'label' => 'sylius.form.promotion.description'
             ))
             ->add('usageLimit', 'integer', array(

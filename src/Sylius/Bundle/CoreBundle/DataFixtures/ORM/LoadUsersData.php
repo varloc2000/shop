@@ -27,10 +27,10 @@ class LoadUsersData extends DataFixture
     {
         $user = $this->getUserRepository()->createNew();
 
-        $user->setFirstname($this->faker->firstName);
-        $user->setLastname($this->faker->lastName);
-        $user->setEmail('sylius@example.com');
-        $user->setPlainPassword('sylius');
+        $user->setFirstname('Denis');
+        $user->setLastname('Ananiev');
+        $user->setEmail('admin@admin.com');
+        $user->setPlainPassword('beadminiscool');
         $user->setEnabled(true);
         $user->setRoles(array('ROLE_SYLIUS_ADMIN'));
         $user->setCurrency('EUR');
