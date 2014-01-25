@@ -27,25 +27,25 @@ class LoadCountriesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $countryRepository = $this->getCountryRepository();
-        $countries = Intl::getRegionBundle()->getCountryNames();
+        // $countryRepository = $this->getCountryRepository();
+        // $countries = Intl::getRegionBundle()->getCountryNames();
 
-        foreach ($countries as $isoName => $name) {
-            $country = $countryRepository->createNew();
+        // foreach ($countries as $isoName => $name) {
+        //     $country = $countryRepository->createNew();
 
-            $country->setName($name);
-            $country->setIsoName($isoName);
+        //     $country->setName($name);
+        //     $country->setIsoName($isoName);
 
-            if ('US' === $isoName) {
-                $this->addUsStates($country);
-            }
+        //     if ('US' === $isoName) {
+        //         $this->addUsStates($country);
+        //     }
 
-            $manager->persist($country);
+        //     $manager->persist($country);
 
-            $this->setReference('Sylius.Country.'.$isoName, $country);
-        }
+        //     $this->setReference('Sylius.Country.'.$isoName, $country);
+        // }
 
-        $manager->flush();
+        // $manager->flush();
     }
 
     /**

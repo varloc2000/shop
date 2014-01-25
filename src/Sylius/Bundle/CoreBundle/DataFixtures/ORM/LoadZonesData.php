@@ -27,26 +27,26 @@ class LoadZonesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $euCountries = array(
-            'BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES',
-            'FR', 'IT', 'CY', 'LV', 'LV', 'LT', 'LU', 'HU', 'MT',
-            'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE',
-            'GB'
-        );
+        // $euCountries = array(
+        //     'BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'GR', 'ES',
+        //     'FR', 'IT', 'CY', 'LV', 'LV', 'LT', 'LU', 'HU', 'MT',
+        //     'NL', 'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE',
+        //     'GB'
+        // );
 
-        $restOfWorldCountries = array_diff(Intl::getRegionBundle()->getCountryNames(), $euCountries + array('US'));
+        // $restOfWorldCountries = array_diff(Intl::getRegionBundle()->getCountryNames(), $euCountries + array('US'));
 
-        $manager->persist($eu = $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, $euCountries));
-        $manager->persist($this->createZone('USA', ZoneInterface::TYPE_COUNTRY, array('US')));
-        $manager->persist($this->createZone('EU + USA', ZoneInterface::TYPE_ZONE, array('EU', 'USA')));
-        $manager->persist($this->createZone('Rest of World', ZoneInterface::TYPE_COUNTRY, $restOfWorldCountries));
+        // $manager->persist($eu = $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, $euCountries));
+        // $manager->persist($this->createZone('USA', ZoneInterface::TYPE_COUNTRY, array('US')));
+        // $manager->persist($this->createZone('EU + USA', ZoneInterface::TYPE_ZONE, array('EU', 'USA')));
+        // $manager->persist($this->createZone('Rest of World', ZoneInterface::TYPE_COUNTRY, $restOfWorldCountries));
 
-        $manager->flush();
+        // $manager->flush();
 
-        $settingsManager = $this->get('sylius.settings.manager');
-        $settings = $settingsManager->loadSettings('taxation');
-        $settings->set('default_tax_zone', $eu);
-        $settingsManager->saveSettings('taxation', $settings);
+        // $settingsManager = $this->get('sylius.settings.manager');
+        // $settings = $settingsManager->loadSettings('taxation');
+        // $settings->set('default_tax_zone', $eu);
+        // $settingsManager->saveSettings('taxation', $settings);
     }
 
     /**
