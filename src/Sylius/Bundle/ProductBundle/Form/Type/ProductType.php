@@ -59,6 +59,9 @@ class ProductType extends AbstractType
             ->add('isNew', null, array(
                 'label' => 'Новинка'
             ))
+            ->add('isRecommended', null, array(
+                'label' => 'Рекоммендованный товар'
+            ))
             ->add('availableOn', 'datetime', array(
                 'date_format' => 'y-M-d',
                 'date_widget' => 'choice',

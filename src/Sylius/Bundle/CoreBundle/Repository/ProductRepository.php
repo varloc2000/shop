@@ -91,6 +91,21 @@ class ProductRepository extends VariableProductRepository
      */
     public function findLatest($limit = 10)
     {
-        return $this->findBy(array('showOnHomepage' => true), array('createdAt' => 'desc'), $limit);
+        if (is_array($limit)){
+            switch ($limit['block']) {
+                case 'recommended':
+                    $resault =  $this->findBy(array('isRecommended' => true), array('createdAt' => 'desc'), $limit['limit']);
+                    break;
+                case 'homepage':
+                    $resault =  $this->findBy(array('showOnHomepage' => true), array('createdAt' => 'desc'), $limit['limit']);
+                    break;
+                default:
+                    $resault = array();
+                    break;
+            }
+            return $resault;
+        }
+
+        return $this->findBy(array(), array('createdAt' => 'desc'), $limit);
     }
 }

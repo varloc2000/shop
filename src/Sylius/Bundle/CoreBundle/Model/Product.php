@@ -53,6 +53,7 @@ class Product extends BaseProduct implements ProductInterface
 
     public $showOnHomepage;
     public $isNew;
+    public $isRecommended; 
     /**
      * Taxons.
      *
@@ -331,5 +332,24 @@ class Product extends BaseProduct implements ProductInterface
     public function getIsNew()
     {
         return $this->isNew;
+    }
+
+    /**
+     * @param boolean $isRecommended 
+     * @return self
+     */
+    public function setIsRecommended ($isRecommended){
+        
+        $this->isRecommended = $isRecommended;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsRecommended ()
+    {
+        return $this->isRecommended;
     }
 }
