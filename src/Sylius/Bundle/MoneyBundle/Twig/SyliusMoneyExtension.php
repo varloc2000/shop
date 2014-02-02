@@ -87,6 +87,15 @@ class SyliusMoneyExtension extends Twig_Extension
     }
 
     /**
+     * @param string $currency
+     * @return boolean
+     */
+    public function isActiveCurrency($currency)
+    {
+        return $currency == $this->currencyContext->getCurrency();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getName()

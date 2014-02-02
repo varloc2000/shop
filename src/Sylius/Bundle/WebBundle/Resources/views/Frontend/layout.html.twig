@@ -39,15 +39,36 @@
         {% block header %}
             <nav class="shop-menu navbar navbar-default navbar-fixed-top collapse navbar-collapse" role="navigation">
                 <a class="logo navbar-brand" href="{{ path('sylius_homepage') }}" title="{{ 'sylius.logo'|trans }}"><span>{{ 'sylius.logo'|trans }}</span></a>
-                <div class="col-lg-3">
+                <div class="currency-switcher">
                     {{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
                 </div>
 
-                <div class="shop-info navbar-text col-lg-6">
-                    {% for phone in settings.phones %}
-                        {# {{ phone.operator }}: {{ phone.number }} #}
-                    {% endfor %}
-                </div>
+                <ul class="shop-info navbar-text">
+                    <li class="promo">
+                        {% if settings.promo %}
+                            <h1 class="promo-text">{{ settings.promo }}</h1>
+                        {% endif %}
+                    </li>
+                    <li class="address">
+                        {% if settings.address %}
+                            <span class="icon glyphicon glyphicon-globe"></span>
+                            <span class="address-text">{{ settings.address }}</span>
+                        {% endif %}
+                    </li>
+                    <li class="phones-section">
+                        {# <span class="icon glyphicon glyphicon-phone"></span> #}
+                        <ul class="phones">
+                            {% if settings.phones|length > 0 %}
+                                {% for phone in settings.phones %}
+                                    <li><span class="operator">{{ phone.operator }}</span>: <span class="number">{{ phone.number }}</span></li>
+                                {% endfor %}
+                            {% endif %}
+                            {% if settings.skype %}
+                                <li><span class="operator">skype</span>: <span class="number">{{ settings.skype }}</span></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
 
                 {{ knp_menu_render('sylius.frontend.main', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
             </nav>

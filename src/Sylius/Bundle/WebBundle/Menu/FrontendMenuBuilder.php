@@ -191,6 +191,7 @@ class FrontendMenuBuilder extends MenuBuilder
         foreach ($this->exchangeRateRepository->findAll() as $exchangeRate) {
             $menu->addChild($exchangeRate->getCurrency(), array(
                 'route' => 'sylius_currency_change',
+                'current' => $this->moneyExtension->isActiveCurrency($exchangeRate->getCurrency()),
                 'routeParameters' => array('currency' => $exchangeRate->getCurrency()),
                 'linkAttributes' => array('title' => $this->translate('sylius.frontend.menu.currency', array('%currency%' => $exchangeRate->getCurrency()))),
             ))->setLabel(Intl::getCurrencyBundle()->getCurrencySymbol($exchangeRate->getCurrency()));

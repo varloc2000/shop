@@ -34,23 +34,112 @@ a {
 .shop-menu {
     /*background: #ffffff url(/bundles/syliusweb/img/main/pattern-chgh.png) repeat;*/
     background: #ffffff url(/bundles/syliusweb/img/main/pattern-c3ip.png) repeat;
+    /*background-attachment: fixed;*/
     border: 0;
     box-shadow: 0px 0px 20px 0px #000;
 }
 .shop-menu .navbar-nav > li > a {
     color: #ffffff!important;
-    margin-top: 10px !important; 
-    padding-bottom: 10px !important;
+    margin-top: 10px;
+    padding: 10px 10px!important;
+}
+.shop-menu .currency-switcher .navbar-nav > li.current > a {
+    font-weight: 800!important;
+    text-decoration: underline;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.shop-menu .currency-switcher {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    float: left;
+    padding: 0 15px;
+}
+.shop-menu .currency-switcher a:hover {
+    color: #D7B157!important;
 }
 .shop-menu .navbar-nav > .open > a,
 .shop-menu .navbar-nav > .open > a:hover {
     background-color: transparent!important;
 }
-.shop-info {
-    margin: 0;
-    padding: 5px;
-    height: 57px;
-    color: #fff!important;
+.shop-info.white {
+    background: #ffffff url(/bundles/syliusweb/img/main/pattern-759l.png) repeat!important;
+    box-shadow: 0 0 9px #000!important;
+    color: rgb(25, 90, 109)!important;
+}
+ul.shop-info {
+    position: relative;
+    display: inline-block;
+    list-style: none;
+    background: #ffffff url(/bundles/syliusweb/img/main/pattern-c3ip.png) repeat;
+    width: 840px;
+    margin: 0 auto;
+    padding: 0;
+    color: rgb(255, 255, 255)!important;
+    /*right: 130px;*/
+}
+ul.shop-info > li {
+    display: inline-block;
+    width: 270px;
+    padding: 6px 0;
+    float: left;
+}
+/*ul.shop-info > li.promo {
+    width: 210px;
+}
+ul.shop-info li.address {
+    width: 300px;
+}
+ul.shop-info li.phones-section {
+    width: 250px;
+}*/
+ul.shop-info li > span.icon {
+    float: left;
+    height: 40px;
+}
+.shop-info p.address {
+    margin-bottom: 5px;
+}
+.shop-info .address .address-text {
+    margin-left: 10px;
+}
+.shop-info ul.phones {
+    /*display: inline-block;*/
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+.shop-info ul.phones li {
+    display: inline-block;
+    margin-left: 10px;
+}
+.shop-info ul.phones li .number {
+    font-weight: 800;
+}
+/*.shop-info::after {
+    content: '';
+
+    position: absolute;
+    display: block;
+    background: #ffffff url(/bundles/syliusweb/img/main/pattern-759l.png) repeat;
+    box-shadow: 0 0 14px #000;
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    right: -46px;
+    float: right;
+    z-index: 0;
+    transform: skew(-10deg);
+    -webkit-transform: rotate(-45deg) skew(-0deg);
+    -moz-transform: rotate(-45deg) skew(-45deg);
+    -o-transform: rotate(-45deg) skew(-45deg);
+}*/
+.shop-info h1.promo-text {
+    font-size: 16px;
+    padding-top: 10px;
+    margin: 0px;
 }
 
 a.logo {
@@ -437,7 +526,6 @@ div.product-box .shop-product-price::after {
     -webkit-transform: rotate(-45deg) skew(-45deg);
     -moz-transform: rotate(-45deg) skew(-45deg);
     -o-transform: rotate(-45deg) skew(-45deg);
-
 }
 
 div.product-box a {

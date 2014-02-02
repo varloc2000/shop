@@ -58,6 +58,8 @@ class GeneralSettingsSchema implements SchemaInterface
                         'number' => '80291111111',
                     ),
                 ),
+                'skype' => 'skypename',
+                'promo' => 'Интернет магазин сантехники от известных производителей',
                 'email' => 'shop@gmail.com',
                 'address' => 'Minsk',
                 // 'locale'           => 'en',
@@ -69,8 +71,10 @@ class GeneralSettingsSchema implements SchemaInterface
                 'meta_description' => array('string'),
                 // 'locale'           => array('string'),
                 'phones'           => array('array'),
-                'email'           => array('string'),
-                'address'           => array('string'),
+                'skype'           => array('string', 'null'),
+                'promo'           => array('string', 'null'),
+                'email'           => array('string', 'null'),
+                'address'           => array('string', 'null'),
                 'currency'         => array('string'),
             ))
         ;
@@ -107,6 +111,8 @@ class GeneralSettingsSchema implements SchemaInterface
                 'by_reference' => false,
                 'label'        => 'sylius.form.settings.general.phones',
             ))
+            ->add('promo', 'text', array())
+            ->add('skype', 'text', array())
             ->add('email', 'email', array())
             ->add('address', 'text', array(
                 'label'        => 'sylius.form.settings.general.address',
