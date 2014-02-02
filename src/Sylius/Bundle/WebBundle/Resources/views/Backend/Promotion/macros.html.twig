@@ -46,8 +46,10 @@
                 <td>{{ promotion.endsAt is empty ? '-' : promotion.endsAt|date }}</td>
                 <td>
                     <div class="pull-right" style="width: 288px;">
-                        {{ buttons.show(path('sylius_backend_promotion_show', {'id': promotion.id})) }}
-                        {{ buttons.edit(path('sylius_backend_promotion_update', {'id': promotion.id})) }}
+                        <div class="btn-group btn-group-sm">
+                            {{ buttons.show(path('sylius_backend_promotion_show', {'id': promotion.id})) }}
+                            {{ buttons.edit(path('sylius_backend_promotion_update', {'id': promotion.id})) }}
+                        </div>
                         {{ buttons.delete(path('sylius_backend_promotion_delete', {'id': promotion.id})) }}
                     </div>
                 </td>
