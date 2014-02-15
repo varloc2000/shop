@@ -124,7 +124,7 @@ class PromotionType extends AbstractType
         $resolver
             ->setDefaults(array(
                 'data_class'        => $this->dataClass,
-                'validation_groups' => $this->validationGroups,
+                // 'validation_groups' => $this->validationGroups,
             ))
         ;
     }

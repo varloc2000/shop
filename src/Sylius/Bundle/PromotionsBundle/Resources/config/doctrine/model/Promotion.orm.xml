@@ -19,8 +19,8 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="name" type="string" />
-        <field name="description" type="string" />
+        <field name="name" type="string" nullable="true"/>
+        <field name="description" type="string" nullable="true"/>
         <field name="usageLimit" column="usage_limit" type="integer" nullable="true" />
         <field name="used" type="integer" />
         <field name="couponBased" column="coupon_based" type="boolean" />
