@@ -15,6 +15,44 @@
             $('#sylius-billing-address-container').toggleClass('hidden');
         });
 
+        var sidebar = new Sidebar();
+        sidebar.init();
+
     });
 
 })( jQuery );
+
+var Sidebar = function() {
+    this.$sidebar = $('#sidebar');
+}
+    Sidebar.prototype.init = function() {
+        this.$sidebar.find('li a.expandable').on('click', function(e) {
+            e.preventDefault();
+
+            var $item = $(this);
+            var $target = $(this).siblings('.hidden-item');
+
+            if ($target.hasClass('collapsed')) {
+                $target
+                    .slideDown(
+                        'fast',
+                        function() {
+                            $(this)
+                                .removeClass('collapsed')
+                                .addClass('expanded');
+                        }
+                    );
+            } else {
+                $target
+                    .slideUp(
+                        'fast',
+                        function() {
+                            $(this)
+                                .removeClass('expanded')
+                                .addClass('collapsed');
+                        }
+                    );
+            }
+        });
+        console.log(this.$sidebar);
+    };

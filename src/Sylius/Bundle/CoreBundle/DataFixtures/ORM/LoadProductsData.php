@@ -107,6 +107,7 @@ class LoadProductsData extends DataFixture
         $product->setDescription($this->faker->paragraph);
         $product->setShowOnHomapage(true);
         $product->setIsNew(rand(0, 1));
+        $product->setIsRecommended(rand(0, 1));
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 

@@ -43,7 +43,7 @@ a {
     margin-top: 10px;
     padding: 10px 7px!important;
 }
-.shop-menu .currency-switcher .navbar-nav > li.current > a {
+.shop-menu .currency-switcher .navbar-nav li.current a {
     font-weight: 800!important;
     text-decoration: underline;
     border-bottom-right-radius: 15px;
@@ -112,7 +112,7 @@ ul.shop-info li > span.icon {
     margin-bottom: 5px;
 }
 .shop-info ul.phones li {
-    display: inline-block;
+    /*display: inline-block;*/
     margin-left: 10px;
 }
 .shop-info ul.phones li .number {
@@ -548,17 +548,31 @@ div.footer p {
 div.footer ul li a {
     color: #999;
 }
+#sidebar .menu_level_2 {
+    margin-left: 20px!important;
+}
+#sidebar .menu_level_3 {
+    margin-left: 40px!important;
+}
+#sidebar .nav li a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
 
 #sidebar ul li img.menu-thumbnail {
     float: none;
     margin-right: 0;
 }
-#sidebar .nav>li.current>a {
+#sidebar .nav li.current > a {
     background-color: #D7BB79;
 }
+#sidebar .hidden-item {
+    display: none;
+}
 
-#sidebar .nav>li>a:hover,
-#sidebar .nav>li>a:focus {
+#sidebar .nav li a:hover,
+#sidebar .nav li a:focus {
     background-color: #D7BB79;
 }
 

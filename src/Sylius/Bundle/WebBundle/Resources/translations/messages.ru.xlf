@@ -1212,7 +1212,7 @@
       </trans-unit>
       <trans-unit id="141229a496ba409f1a225932bc0f9178" resname="sylius.product.no_results">
         <source>sylius.product.no_results</source>
-        <target>There are no products to display.</target>
+        <target>В выбранной категории еще нет товаров.</target>
       </trans-unit>
       <trans-unit id="7a01a908f011a11b85743691b19c5a14" resname="sylius.product.no_short_description">
         <source>sylius.product.no_short_description</source>
