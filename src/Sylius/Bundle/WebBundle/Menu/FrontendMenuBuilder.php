@@ -211,7 +211,7 @@ class FrontendMenuBuilder extends MenuBuilder
     {
         $menu = $this->factory->createItem('root', array(
             'childrenAttributes' => array(
-                'class' => 'nav'
+                'class' => 'nav side-menu'
             )
         ));
 
@@ -241,7 +241,9 @@ class FrontendMenuBuilder extends MenuBuilder
             $childMenu = $menu->addChild($child->getName(), array(
                 'route'           => 'sylius_product_index_by_taxon',
                 'routeParameters' => array('permalink' => $child->getPermalink()),
-                'labelAttributes' => array('icon' => 'icon-angle-right')
+                'labelAttributes' => $child->getChildren()->count() > 0 
+                    ? array('icon' => 'icon-angle-right')
+                    : array(),
             ));
             if ($child->getPath()) {
                 $childMenu->setLabelAttribute('data-image', $child->getPath());

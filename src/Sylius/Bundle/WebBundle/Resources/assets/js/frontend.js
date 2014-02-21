@@ -42,6 +42,9 @@ var Sidebar = function() {
                                 .addClass('expanded');
                         }
                     );
+                $item
+                    .removeClass('collapsed')
+                    .addClass('expanded');
             } else {
                 $target
                     .slideUp(
@@ -52,7 +55,9 @@ var Sidebar = function() {
                                 .addClass('collapsed');
                         }
                     );
+                $item
+                    .removeClass('expanded')
+                    .addClass('collapsed');
             }
         });
-        console.log(this.$sidebar);
     };
