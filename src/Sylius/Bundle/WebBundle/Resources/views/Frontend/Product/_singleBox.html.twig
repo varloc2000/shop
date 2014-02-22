@@ -1,4 +1,32 @@
-<div class="product-box">
+{% set popover %}
+<div class="product-properties-popover">
+{%- if product.properties|length > 0 -%}
+    <h5>{{ 'sylius.product.properties'|trans }}:</h5>
+    <ul class="product-properties">
+        {% for property in product.properties %}
+            <li>
+                <span class="property">{{ property.presentation }}</span>:&nbsp;
+                <span class="value">{{ property.value }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{%- endif -%}
+{%- if product.options|length > 0 -%}
+    <hr>
+    <h5>{{ 'sylius.product.options'|trans }}:</h5>
+    <ul class="product-properties">
+        {% for option in product.options %}
+            <li>
+                <span class="property">{{ option.name }}</span>:&nbsp;
+                <span class="value">{{ option.values|join(', ') }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{%- endif -%}
+</div>
+{% endset %}
+
+<div class="product-box" data-content="{{ popover|e|raw }}" data-title="{{ product.name }}">
     {% if product.isNew %}
         <div class="shop-product-new-badge">new!</div>
     {% endif %}
@@ -9,9 +37,16 @@
         </a>
         <div class="caption">
             <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}">
-                <h4>
-                    {{ product.name|truncate(18) }}
+                <h4 title="{{ product.name }}">
+                    {{ product.name|truncate(55) }}
                 </h4>
+                {% if product.shortDescription is not null %}
+                    <hr>
+                    <div class="shord-description">
+                        {{ product.shortDescription|truncate(65) }}
+                    </div>
+                {% endif %}
+
             </a>
             {# <button class="btn btn-success btn-xs pull-right"><i class="icon-shopping-cart icon-white"></i> {{ 'sylius.add_to_cart'|trans }}</button> #}
         </div>

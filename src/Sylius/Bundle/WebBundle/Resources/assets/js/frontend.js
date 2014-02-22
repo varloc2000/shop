@@ -18,6 +18,12 @@
         var sidebar = new Sidebar();
         sidebar.init();
 
+        $('body').popover({
+            placement: 'auto right',
+            trigger: 'hover',
+            html: true,
+            selector: '.product-box'
+        });
     });
 
 })( jQuery );

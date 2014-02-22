@@ -402,6 +402,25 @@ div.product-box {
     margin-bottom: 30px;
 }
 
+div.product-box hr {
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+div.product-box .caption h4 {
+    height: 38px;
+}
+div.product-box .caption .shord-description {
+    height: 60px;
+}
+.product-properties-popover ul.product-properties {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    color: #2a6496;
+}
+.product-properties-popover ul.product-properties .value {
+    color: #AF8524!important;
+}
 div.product-box .shop-product-new-badge {
     position: absolute;
     background-color: #E4371B;
