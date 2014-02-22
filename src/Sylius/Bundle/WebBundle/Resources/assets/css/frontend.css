@@ -63,7 +63,7 @@ a {
 .shop-menu .navbar-nav > .open > a:hover {
     background-color: transparent!important;
 }
-.side-menu a.expandable.expanded .icon-angle-right::before {
+.side-menu li.expanded > a .icon-angle-right::before {
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);

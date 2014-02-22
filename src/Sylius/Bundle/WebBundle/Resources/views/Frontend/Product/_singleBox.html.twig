@@ -12,7 +12,9 @@
     </ul>
 {%- endif -%}
 {%- if product.options|length > 0 -%}
-    <hr>
+    {%- if product.properties|length > 0 -%}
+        <hr>
+    {% endif %}
     <h5>{{ 'sylius.product.options'|trans }}:</h5>
     <ul class="product-properties">
         {% for option in product.options %}
