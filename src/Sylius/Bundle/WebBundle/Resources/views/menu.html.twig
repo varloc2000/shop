@@ -48,7 +48,7 @@
     {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
     {%- if matcher.isCurrent(item) %}
         {%- set classes = classes|merge([options.currentClass]) %}
-    {%- elseif matcher.isAncestor(item, options.depth) %}
+    {%- elseif matcher.isAncestor(item, options.depth) and item.level > 1 %}
         {%- set classes = classes|merge([options.ancestorClass]) %}
     {%- endif %}
     {%- if item.actsLikeFirst %}
@@ -56,6 +56,14 @@
     {%- endif %}
     {%- if item.actsLikeLast %}
         {%- set classes = classes|merge([options.lastClass]) %}
+    {%- endif %}
+    {%- if item.hasChildren %}
+        {%- set classes = classes|merge(['expandable']) %}
+        {%- if matcher.isAncestor(item, options.depth) %}
+            {%- set classes = classes|merge(['expanded']) %}
+        {%- else %}
+            {%- set classes = classes|merge(['collapsed']) %}
+        {%- endif %}
     {%- endif %}
     {%- set attributes = item.attributes %}
     {%- if classes is not empty %}

@@ -560,6 +560,9 @@ div.footer ul li a {
 #sidebar .menu_level_3 {
     margin-left: 40px!important;
 }
+#sidebar .menu_level_4 {
+    margin-left: 60px!important;
+}
 #sidebar .nav li a {
     position: relative;
     display: block;
@@ -575,6 +578,9 @@ div.footer ul li a {
 }
 #sidebar .hidden-item {
     display: none;
+}
+#sidebar .current_ancestor > .hidden-item {
+    display: block;
 }
 
 #sidebar .nav li a:hover,

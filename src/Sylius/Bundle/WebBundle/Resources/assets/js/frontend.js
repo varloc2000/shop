@@ -26,38 +26,33 @@ var Sidebar = function() {
     this.$sidebar = $('#sidebar');
 }
     Sidebar.prototype.init = function() {
-        this.$sidebar.find('li a.expandable').on('click', function(e) {
+        this.$sidebar.find('li.expandable a.expandable').on('click', function(e) {
             e.preventDefault();
 
-            var $item = $(this);
+            var $parent = $(this).parent('li.expandable');
             var $target = $(this).siblings('.hidden-item');
+            console.log($target);
 
-            if ($target.hasClass('collapsed')) {
+            if ($parent.hasClass('collapsed')) {
                 $target
                     .slideDown(
                         'fast',
                         function() {
-                            $(this)
+                            $parent
                                 .removeClass('collapsed')
                                 .addClass('expanded');
                         }
                     );
-                $item
-                    .removeClass('collapsed')
-                    .addClass('expanded');
             } else {
                 $target
                     .slideUp(
                         'fast',
                         function() {
-                            $(this)
+                            $parent
                                 .removeClass('expanded')
                                 .addClass('collapsed');
                         }
                     );
-                $item
-                    .removeClass('expanded')
-                    .addClass('collapsed');
             }
         });
     };
